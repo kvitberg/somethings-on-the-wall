@@ -1,0 +1,12 @@
+node_modules/
+_originals/
+dist/
+.astro/
+.DS_Store
+.impeccable/questions/
+.impeccable/mocks/
+.impeccable/review/
+.vercel
+PRODUCT.md
+.impeccable/
+skisser/

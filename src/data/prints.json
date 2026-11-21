@@ -1,0 +1,291 @@
+{
+  "_note": "Prices, edition sizes, formats, titles, places and captions are drafts for Scott to confirm. placeConfirmed=false means the place was inferred from the file name or the picture.",
+  "defaults": {
+    "editionSize": 25,
+    "sold": 0,
+    "priceEur": 380,
+    "format": "A2 · 42 × 59.4 cm",
+    "paper": "Hahnemühle Photo Rag 308 gsm",
+    "frame": "Unframed, shipped flat",
+    "stripeLink": ""
+  },
+  "featured": "the-red-wall",
+  "rooms": [
+    {
+      "id": "south",
+      "title": "South",
+      "line": "Doors, walls and streets in the Mediterranean light."
+    },
+    {
+      "id": "halls",
+      "title": "Halls",
+      "line": "Stone, marble and the inside of great buildings."
+    },
+    {
+      "id": "north",
+      "title": "North",
+      "line": "Snow, night and northern light in Norway."
+    },
+    {
+      "id": "lines",
+      "title": "Lines",
+      "line": "Geometry, shadow and a single figure."
+    }
+  ],
+  "prints": [
+    {
+      "slug": "the-green-door",
+      "file": "door",
+      "room": "south",
+      "title": "The Green Door",
+      "place": null,
+      "placeConfirmed": false,
+      "caption": "A weathered green double door set in a bright red frame, under a clear sky."
+    },
+    {
+      "slug": "madeira-door",
+      "file": "door-madeira",
+      "room": "south",
+      "title": "Madeira Door",
+      "place": "Madeira, Portugal",
+      "placeConfirmed": true,
+      "caption": "A narrow carved door in an ochre wall, the paint worn back to stone."
+    },
+    {
+      "slug": "santana",
+      "file": "santana-traditional-house",
+      "room": "south",
+      "title": "Santana",
+      "place": "Santana, Madeira",
+      "placeConfirmed": true,
+      "caption": "A thatched A-frame house in white, red and blue, one of the traditional homes of Santana."
+    },
+    {
+      "slug": "the-red-wall",
+      "file": "woman-walking-downstairs",
+      "room": "south",
+      "title": "The Red Wall",
+      "place": null,
+      "placeConfirmed": false,
+      "caption": "A passer-by walks down a stepped street beside a deep red facade, cut in two by a diagonal shadow.",
+      "detail": {
+        "x": 79,
+        "y": 73,
+        "zoom": 2.1
+      }
+    },
+    {
+      "slug": "tea-house",
+      "file": "tea-shop",
+      "room": "south",
+      "title": "Tea House",
+      "place": null,
+      "placeConfirmed": false,
+      "caption": "A small tea house with its shopfront lit up and plants spilling over the balcony."
+    },
+    {
+      "slug": "hydrant",
+      "file": "fire-hydrant",
+      "room": "south",
+      "title": "Hydrant",
+      "place": null,
+      "placeConfirmed": false,
+      "caption": "A red fire hydrant at the foot of a sunlit red wall, half in shadow."
+    },
+    {
+      "slug": "vespa",
+      "file": "vespa",
+      "room": "south",
+      "title": "Vespa",
+      "place": null,
+      "placeConfirmed": false,
+      "caption": "An orange Vespa with a sidecar, parked against an ochre wall."
+    },
+    {
+      "slug": "single-house",
+      "file": "enkelthus",
+      "room": "south",
+      "title": "Single House",
+      "place": null,
+      "placeConfirmed": false,
+      "caption": "A single low white house with a terracotta roof and red trim, wires running overhead."
+    },
+    {
+      "slug": "window-to-a-chimney",
+      "file": "window-to-a-chimney",
+      "room": "south",
+      "title": "Window to a Chimney",
+      "place": null,
+      "placeConfirmed": false,
+      "caption": "A ruined wall frames a chimney and a square of blue sky through an empty window."
+    },
+    {
+      "slug": "basilica",
+      "file": "vatican-1",
+      "room": "halls",
+      "title": "Basilica",
+      "place": "Vatican City",
+      "placeConfirmed": true,
+      "caption": "The gilded coffers and arches of a basilica nave, drawn toward the light."
+    },
+    {
+      "slug": "the-long-gallery",
+      "file": "vatican-2",
+      "room": "halls",
+      "title": "The Long Gallery",
+      "place": "Vatican City",
+      "placeConfirmed": true,
+      "caption": "A long gallery of marble and checkerboard floor, receding to a bright window."
+    },
+    {
+      "slug": "laocoon",
+      "file": "vatican-5",
+      "room": "halls",
+      "title": "Laocoön",
+      "place": "Vatican City",
+      "placeConfirmed": true,
+      "caption": "The Laocoön group in its niche, white marble against dark stone."
+    },
+    {
+      "slug": "coffered-arch",
+      "file": "riga-3",
+      "room": "halls",
+      "title": "Coffered Arch",
+      "place": null,
+      "placeConfirmed": false,
+      "caption": "Looking straight up into a coffered stone arch, with a slice of blue sky."
+    },
+    {
+      "slug": "the-monument",
+      "file": "scott",
+      "room": "halls",
+      "title": "The Monument",
+      "place": "Edinburgh, Scotland",
+      "placeConfirmed": false,
+      "caption": "A gothic monument in dark stone with a seated white statue at its heart."
+    },
+    {
+      "slug": "las-catedrales",
+      "file": "catedral-spain",
+      "room": "halls",
+      "title": "Las Catedrales",
+      "place": "Galicia, Spain",
+      "placeConfirmed": false,
+      "caption": "A cave mouth opens onto sea arches on a wet beach, in black and white."
+    },
+    {
+      "slug": "oslo-s",
+      "file": "oslo-s",
+      "room": "north",
+      "title": "Oslo S",
+      "place": "Oslo, Norway",
+      "placeConfirmed": true,
+      "caption": "Two figures walk through falling snow beneath the city's towers at night."
+    },
+    {
+      "slug": "lofoten",
+      "file": "lofoten-1",
+      "room": "north",
+      "title": "Lofoten",
+      "place": "Lofoten, Norway",
+      "placeConfirmed": true,
+      "caption": "Smooth rocks and a tidal pool under a heavy blue sky, peaks on the horizon."
+    },
+    {
+      "slug": "aurora-lofoten",
+      "file": "lofoten-2",
+      "room": "north",
+      "title": "Aurora, Lofoten",
+      "place": "Lofoten, Norway",
+      "placeConfirmed": true,
+      "caption": "Green and violet northern lights over dark mountains."
+    },
+    {
+      "slug": "northern-lights",
+      "file": "northern-lights",
+      "room": "north",
+      "title": "Northern Lights",
+      "place": "Norway",
+      "placeConfirmed": true,
+      "caption": "A burst of aurora spirals above the silhouettes of spruce trees."
+    },
+    {
+      "slug": "maridalen",
+      "file": "maridalen",
+      "room": "north",
+      "title": "Maridalen",
+      "place": "Oslo, Norway",
+      "placeConfirmed": true,
+      "caption": "A still lake reflecting a violet dusk, the far shore a line of trees."
+    },
+    {
+      "slug": "morkgonga",
+      "file": "morkgonga",
+      "room": "north",
+      "title": "Mørkgonga",
+      "place": "Norway",
+      "placeConfirmed": true,
+      "caption": "A narrow path between tall, mist-soaked spruce."
+    },
+    {
+      "slug": "the-balcony",
+      "file": "old-guy",
+      "room": "lines",
+      "title": "The Balcony",
+      "place": null,
+      "placeConfirmed": false,
+      "caption": "Yellow balconies at a sharp angle, an old man leaning out of one."
+    },
+    {
+      "slug": "night-shift",
+      "file": "corrals",
+      "room": "lines",
+      "title": "Night Shift",
+      "place": null,
+      "placeConfirmed": false,
+      "caption": "An office block at night, a few windows lit above a glowing sign."
+    },
+    {
+      "slug": "three-windows",
+      "file": "tre-vinduer",
+      "room": "lines",
+      "title": "Three Windows",
+      "place": null,
+      "placeConfirmed": false,
+      "caption": "Three bright windows in a dark wall, the light spilling across the floor."
+    },
+    {
+      "slug": "portway",
+      "file": "portway",
+      "room": "lines",
+      "title": "Portway",
+      "place": null,
+      "placeConfirmed": false,
+      "caption": "Looking through a dark archway to a sunlit gate."
+    },
+    {
+      "slug": "uphill",
+      "file": "man-walking-uphill",
+      "room": "lines",
+      "title": "Uphill",
+      "place": null,
+      "placeConfirmed": false,
+      "caption": "A figure climbs a narrow lane between dark walls toward a white house."
+    },
+    {
+      "slug": "sagres",
+      "file": "sagres",
+      "room": "lines",
+      "title": "Sagres",
+      "place": "Sagres, Portugal",
+      "placeConfirmed": true,
+      "caption": "A low building sits on a rocky plateau under a pale sky."
+    }
+  ],
+  "heroGrid": [
+    "santana",
+    "oslo-s",
+    "the-long-gallery",
+    "the-balcony"
+  ]
+}

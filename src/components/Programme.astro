@@ -1,0 +1,204 @@
+---
+import { Image } from 'astro:assets';
+import { eur, href, type Print } from '../lib/prints';
+
+interface Props {
+  items: Print[];
+  preview?: boolean;
+}
+const { items, preview = false } = Astro.props;
+---
+
+<div class:list={['programme', { 'has-preview': preview }]} data-programme>
+  <ol class="rows">
+    <li class="row head label" aria-hidden="true">
+      <span>No.</span><span>Title</span><span class="col-room">Room</span><span class="col-left">Left</span><span class="col-price">Price</span>
+    </li>
+    {
+      items.map((p, i) => (
+        <li>
+          <a class="row" href={href(`/prints/${p.slug}/`)} data-index={i}>
+            <span class="num no">{p.numberLabel}</span>
+            <span class="title">
+              <Image class="thumb" src={p.image} alt="" widths={[120, 240]} sizes="60px" loading="lazy" />
+              <span>
+                <span class="name">{p.title}</span>
+                {p.place && <span class="place">{p.place}</span>}
+              </span>
+            </span>
+            <span class="col-room">{p.room.title}</span>
+            <span class="col-left num">{p.soldOut ? 'Sold out' : `${p.remaining} / ${p.editionSize}`}</span>
+            <span class="col-price num">{eur(p.priceEur)}</span>
+          </a>
+        </li>
+      ))
+    }
+  </ol>
+  {
+    preview && (
+      <div class="preview" aria-hidden="true">
+        <div class="preview-stage">
+          {items.map((p, i) => (
+            <div class:list={['preview-sheet', 'sheet', { 'is-active': i === 0 }]} data-index={i}>
+              <Image src={p.image} alt="" widths={[480, 800]} sizes="(min-width: 1100px) 30vw, 0px" loading="lazy" />
+            </div>
+          ))}
+        </div>
+      </div>
+    )
+  }
+</div>
+
+<style>
+  .programme {
+    container-type: inline-size;
+  }
+  .programme.has-preview {
+    display: grid;
+    grid-template-columns: minmax(0, 7fr) minmax(0, 4fr);
+    gap: clamp(32px, 5vw, 88px);
+    align-items: start;
+  }
+  .rows {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .row {
+    display: grid;
+    grid-template-columns: 3.2rem minmax(0, 1fr) 6.5rem 5.5rem 5rem;
+    gap: 16px;
+    align-items: baseline;
+    padding: 14px 0;
+    border-top: 1px solid var(--rule);
+    text-decoration: none;
+    transition: background-color 0.25s var(--ease-out), padding 0.35s var(--ease-out);
+  }
+  .row.head {
+    border-top: 0;
+    padding-block: 0 10px;
+    color: var(--ink-soft);
+  }
+  a.row:hover,
+  a.row:focus-visible,
+  a.row.is-active {
+    background: var(--stone-deep);
+    padding-inline: 12px;
+  }
+  .no {
+    color: var(--cobalt);
+  }
+  .title {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    min-width: 0;
+  }
+  .title > span {
+    display: grid;
+    min-width: 0;
+  }
+  .name {
+    font-family: var(--display);
+    font-size: 21px;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    font-variation-settings: 'wght' 460;
+  }
+  .place {
+    color: var(--ink-soft);
+    font-size: 14px;
+  }
+  .col-left {
+    color: var(--vermilion-ink);
+    font-variation-settings: 'wght' 560;
+  }
+  .col-price {
+    text-align: right;
+  }
+  .head .col-price {
+    text-align: right;
+  }
+  .head .col-left {
+    color: inherit;
+  }
+  .thumb {
+    display: none;
+    width: 46px;
+    height: 64px;
+    object-fit: cover;
+    flex: none;
+  }
+
+  .preview {
+    position: sticky;
+    top: 24px;
+  }
+  .preview-stage {
+    display: grid;
+  }
+  .preview-sheet {
+    grid-area: 1 / 1;
+    opacity: 0;
+    transform: translateY(10px);
+    clip-path: inset(0 0 8% 0);
+    transition: opacity 0.45s var(--ease-out), transform 0.6s var(--ease-out), clip-path 0.6s var(--ease-out);
+  }
+  .preview-sheet.is-active {
+    opacity: 1;
+    transform: none;
+    clip-path: inset(0 0 0 0);
+  }
+
+  @media (max-width: 1100px) {
+    .programme.has-preview {
+      grid-template-columns: 1fr;
+    }
+    .preview {
+      display: none;
+    }
+  }
+  @container (max-width: 760px) {
+    .thumb {
+      display: block;
+    }
+  }
+  @container (max-width: 600px) {
+    .row {
+      grid-template-columns: 2.2rem minmax(0, 1fr) auto;
+      gap: 10px;
+      align-items: center;
+    }
+    .col-room,
+    .col-price {
+      display: none;
+    }
+    .name {
+      font-size: 19px;
+    }
+  }
+</style>
+
+<script>
+  // Hovering or focusing a programme row floats that photograph beside the list.
+  for (const root of document.querySelectorAll<HTMLElement>('[data-programme].has-preview')) {
+    const rows = root.querySelectorAll<HTMLAnchorElement>('a.row');
+    const sheets = root.querySelectorAll<HTMLElement>('.preview-sheet');
+    let current = 0;
+    const show = (i: number) => {
+      if (i === current) return;
+      sheets[current]?.classList.remove('is-active');
+      rows[current]?.classList.remove('is-active');
+      sheets[i]?.classList.add('is-active');
+      rows[i]?.classList.add('is-active');
+      current = i;
+    };
+    rows[0]?.classList.add('is-active');
+    rows.forEach((row) => {
+      const i = Number(row.dataset.index);
+      row.addEventListener('pointerenter', () => show(i));
+      row.addEventListener('focus', () => show(i));
+    });
+  }
+</script>

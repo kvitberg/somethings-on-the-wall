@@ -1,0 +1,68 @@
+---
+// The edition as a line of numbered ticks: sold in cobalt, the next number in vermilion.
+interface Props {
+  size: number;
+  sold: number;
+}
+const { size, sold } = Astro.props;
+const remaining = size - sold;
+const next = sold + 1;
+const pad = (n: number) => String(n).padStart(2, '0');
+---
+
+<div class="edition-line">
+  <div class="ticks" role="img" aria-label={remaining > 0 ? `${remaining} of ${size} prints available. Number ${next} is next.` : `All ${size} prints are sold.`}>
+    {Array.from({ length: size }, (_, i) => <span class:list={['tick', { sold: i < sold, next: i === sold }]} />)}
+  </div>
+  <div class="legend num" aria-hidden="true">
+    <span>{remaining > 0 ? `No. ${pad(next)} is next` : 'Edition closed'}</span>
+    <span>{remaining} of {size} available</span>
+  </div>
+</div>
+
+<style>
+  .ticks {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    height: 40px;
+  }
+  .tick {
+    width: 2px;
+    height: 26px;
+    background: color-mix(in srgb, var(--ink) 28%, transparent);
+  }
+  .tick.sold {
+    background: var(--cobalt);
+    width: 3px;
+  }
+  .tick.next {
+    background: var(--vermilion);
+    width: 3px;
+    height: 40px;
+  }
+  .legend {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 12px;
+    font-size: 12px;
+    font-variation-settings: 'wght' 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+  .legend span:first-child {
+    color: var(--vermilion-ink);
+  }
+  :global(.on-cobalt) .tick {
+    background: color-mix(in srgb, var(--on-cobalt) 40%, transparent);
+  }
+  :global(.on-cobalt) .tick.sold {
+    background: var(--on-cobalt);
+  }
+  :global(.on-cobalt) .tick.next {
+    background: #ff8a6b;
+  }
+  :global(.on-cobalt) .legend span:first-child {
+    color: var(--on-cobalt);
+  }
+</style>

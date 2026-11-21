@@ -1,0 +1,232 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import Programme from '../components/Programme.astro';
+import { href, pad, prints, printsInRoom, rooms } from '../lib/prints';
+---
+
+<Base title="Programme" current="programme" description="Every print in the season: twenty-seven photographs by Scott Kvitberg, each in an edition of 25.">
+  <section class="wrap head">
+    <h1 class="caps title">Programme</h1>
+    <div class="head-side">
+      <p>Twenty-seven photographs in four rooms. Each is printed in a single format, in an edition of twenty-five, and signed.</p>
+      <nav class="room-links" aria-label="Rooms">
+        {
+          rooms.map((r) => (
+            <a href={`#room-${r.id}`}>
+              <span>{r.title}</span>
+              <span class="num">{pad(printsInRoom(r.id).length)}</span>
+            </a>
+          ))
+        }
+      </nav>
+    </div>
+  </section>
+
+  <div id="rooms">
+    {
+      rooms.map((room, ri) => (
+        <section id={`room-${room.id}`} class:list={['room', { 'on-night': room.id === 'north' }]} aria-labelledby={`room-${room.id}-title`}>
+          <div class="wrap">
+            <header class="room-head" data-reveal>
+              <h2 id={`room-${room.id}-title`} class="caps room-title">{room.title}</h2>
+              <p class="room-line">{room.line}</p>
+            </header>
+            <ul
+              class:list={['room-grid', { flip: ri % 2 === 1, 'odd-tail': (printsInRoom(room.id).length - 1) % 2 === 1 }]}
+              style={`--cols:${printsInRoom(room.id).length % 4 === 1 ? 4 : 3}`}
+            >
+              {printsInRoom(room.id).map((p, i) => (
+                <li>
+                  <a class="piece" href={href(`/prints/${p.slug}/`)}>
+                    <div class="sheet" data-reveal="img" style={`--i:${i % 4}`}>
+                      <Image src={p.image} alt={p.caption} widths={[400, 700, 1100]} sizes="(min-width: 900px) 25vw, 50vw" loading="lazy" style={`view-transition-name: vt-${p.slug}`} />
+                    </div>
+                    <span class="piece-meta">
+                      <span class="piece-name">{p.title}</span>
+                      <span class="num piece-no">{p.numberLabel}</span>
+                    </span>
+                    <span class="piece-place">{p.place ?? room.line}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      ))
+    }
+  </div>
+
+  <section id="list" class="wrap list" aria-labelledby="list-title">
+    <header class="room-head" data-reveal>
+      <h2 id="list-title" class="caps room-title">The full list</h2>
+      <p class="room-line">Every print, its edition and what is left. Hover a title to see it.</p>
+    </header>
+    <div data-reveal style="--i:1">
+      <Programme items={prints} preview />
+    </div>
+  </section>
+</Base>
+
+<style>
+  .head {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: var(--space-5);
+    align-items: end;
+    padding-top: var(--space-4);
+  }
+  .title {
+    font-size: min(7vw, 108px);
+    color: var(--cobalt);
+    white-space: nowrap;
+  }
+  .head-side {
+    display: grid;
+    gap: var(--space-3);
+    padding-bottom: 8px;
+  }
+  .head-side p {
+    font-size: 18px;
+    max-width: 38ch;
+  }
+  .room-links {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-top: 1px solid var(--rule);
+  }
+  .room-links a {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 12px 0 0;
+    font-size: 13px;
+    font-variation-settings: 'wght' 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+  .room-links a:hover {
+    color: var(--cobalt);
+  }
+  .room-links .num {
+    color: var(--ink-soft);
+    margin-right: 12px;
+  }
+
+  .room {
+    padding-top: var(--space-6);
+  }
+  .room.on-night {
+    background: var(--night);
+    color: var(--on-night);
+    padding-block: var(--space-6);
+    margin-top: var(--space-6);
+  }
+  .room-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+    margin-bottom: var(--space-4);
+    padding-top: var(--space-3);
+    border-top: 1px solid var(--hairline);
+  }
+  .on-night .room-head {
+    border-top-color: color-mix(in srgb, var(--on-night) 22%, transparent);
+  }
+  .room-title {
+    font-size: min(6vw, 84px);
+    color: var(--cobalt);
+  }
+  .on-night .room-title {
+    color: var(--on-night);
+  }
+  .room-line {
+    max-width: 34ch;
+    color: var(--ink-soft);
+  }
+  .on-night .room-line,
+  .on-night .piece-place,
+  .on-night .piece-no {
+    color: var(--on-night-soft);
+  }
+  .room-grid {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(var(--cols, 4), minmax(0, 1fr));
+    grid-auto-flow: dense;
+    gap: var(--space-5) clamp(16px, 2.4vw, 36px);
+    align-items: start;
+  }
+  .room-grid > li:first-child {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+  .room-grid.flip > li:first-child {
+    grid-column: -3 / span 2;
+  }
+  .piece {
+    display: grid;
+    gap: 4px;
+    text-decoration: none;
+  }
+  .piece .sheet {
+    margin-bottom: 12px;
+    transition: transform 0.7s var(--ease-out), box-shadow 0.7s var(--ease-out);
+  }
+  .piece:hover .sheet {
+    transform: translateY(-5px);
+    box-shadow: 0 2px 4px rgb(22 22 26 / 0.1), 0 28px 46px -22px rgb(22 22 26 / 0.45);
+  }
+  .piece-meta {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    align-items: baseline;
+  }
+  .piece-name {
+    font-family: var(--display);
+    font-size: 22px;
+  }
+  .piece-no {
+    font-size: 13px;
+    color: var(--ink-soft);
+  }
+  .piece-place {
+    font-size: 14px;
+    color: var(--ink-soft);
+  }
+  .list {
+    padding-top: var(--space-7);
+  }
+  @media (max-width: 900px) {
+    .head {
+      grid-template-columns: 1fr;
+      gap: var(--space-3);
+    }
+    .title {
+      font-size: min(12.5vw, 96px);
+    }
+    .room-links {
+      grid-template-columns: 1fr 1fr;
+    }
+    .room-title {
+      font-size: min(11vw, 64px);
+    }
+    .room-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .room-grid.flip > li:first-child {
+      grid-column: span 2;
+    }
+    .room-grid > li:first-child {
+      grid-row: auto;
+    }
+    .room-grid.odd-tail > li:last-child {
+      grid-column: span 2;
+    }
+  }
+</style>

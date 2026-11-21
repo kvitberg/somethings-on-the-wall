@@ -1,0 +1,99 @@
+---
+import '@fontsource/gloock/400.css';
+import '@fontsource-variable/schibsted-grotesk';
+import '../styles/global.css';
+import { href, isPreview } from '../lib/prints';
+
+interface Props {
+  title: string;
+  description?: string;
+  current?: 'programme' | 'about' | 'editions' | 'rooms';
+  image?: string;
+  bare?: boolean; // concept pages draw their own header and footer
+}
+const { title, description = 'Signed, numbered fine art prints by photographer Scott Kvitberg. Editions of 25, never more.', current, image, bare = false } = Astro.props;
+const fullTitle = title === 'Somethings on the wall' ? title : `${title} · Somethings on the wall`;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#f1ede6" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    {image && <meta property="og:image" content={image} />}
+    {isPreview && <meta name="robots" content="noindex" />}
+    <link rel="icon" href={href('/favicon.svg')} type="image/svg+xml" />
+    <script is:inline>document.documentElement.classList.add('js');</script>
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    {!bare && isPreview && <p class="notice">Preview. Prices, edition sizes and some place names are placeholders until launch.</p>}
+    {!bare && <div class="wrap">
+      <header class="site-header">
+        <a class="wordmark" href={href('/')}>Somethings on the wall</a>
+        <nav class="site-nav" aria-label="Main">
+          <a href={href('/about/')} aria-current={current === 'about' ? 'page' : undefined}>About</a>
+          <a href={href('/programme/#rooms')} aria-current={current === 'rooms' ? 'page' : undefined}>Rooms</a>
+          <a href={href('/programme/')} aria-current={current === 'programme' ? 'page' : undefined}>Programme</a>
+          <a href={href('/about/#editions')} aria-current={current === 'editions' ? 'page' : undefined}>Editions</a>
+        </nav>
+        <span class="dots" aria-hidden="true"><span></span><span></span><span></span></span>
+      </header>
+    </div>}
+    <main id="main">
+      <slot />
+    </main>
+    {!bare && <div class="wrap">
+      <footer class="site-footer">
+        <div>
+          <a class="wordmark" href={href('/')}>Somethings on the wall</a>
+          <img class="sig" src={href('/signature.png')} alt="Scott Kvitberg's signature" width="300" height="140" loading="lazy" />
+        </div>
+        <div>
+          <h2>The photographer</h2>
+          <p>Scott Kvitberg<br />Oslo, Norway</p>
+        </div>
+        <div>
+          <h2>The prints</h2>
+          <ul>
+            <li><a href={href('/programme/')}>The programme</a></li>
+            <li><a href={href('/about/#editions')}>How editions work</a></li>
+            <li><a href={href('/about/#shipping')}>Printing and shipping</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2>About</h2>
+          <ul>
+            <li><a href={href('/about/')}>About the project</a></li>
+          </ul>
+        </div>
+        <p class="fine">All photographs © Scott Kvitberg. Every print is one of a numbered edition and ships with a signed certificate.</p>
+      </footer>
+    </div>}
+    <script>
+      // Reveal sections as they scroll into view; show everything at once if observers are missing.
+      const items = document.querySelectorAll<HTMLElement>('[data-reveal]');
+      if (!('IntersectionObserver' in window)) {
+        items.forEach((el) => el.classList.add('is-in'));
+      } else {
+        const io = new IntersectionObserver(
+          (entries) => {
+            for (const e of entries) {
+              if (e.isIntersecting) {
+                e.target.classList.add('is-in');
+                io.unobserve(e.target);
+              }
+            }
+          },
+          { rootMargin: '0px 0px -4% 0px', threshold: 0.04 },
+        );
+        items.forEach((el) => io.observe(el));
+      }
+    </script>
+  </body>
+</html>

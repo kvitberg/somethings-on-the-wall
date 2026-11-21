@@ -1,0 +1,28 @@
+---
+import Base from '../layouts/Base.astro';
+import { href } from '../lib/prints';
+---
+
+<Base title="Not found">
+  <div class="wrap lost">
+    <h1 class="caps">Not on the wall</h1>
+    <p>This page does not exist, or the print has moved. The whole season is in the programme.</p>
+    <a class="collect" href={href('/programme/')}>See the programme</a>
+  </div>
+</Base>
+
+<style>
+  .lost {
+    padding-block: var(--space-6);
+    display: grid;
+    gap: var(--space-3);
+    justify-items: start;
+  }
+  h1 {
+    font-size: clamp(56px, 10vw, 96px);
+    color: var(--cobalt);
+  }
+  p {
+    max-width: 46ch;
+  }
+</style>

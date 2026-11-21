@@ -1,0 +1,136 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import { featured, href, prints } from '../lib/prints';
+
+const editionSize = featured.editionSize;
+const portrait = prints.find((p) => p.slug === 'the-long-gallery') ?? featured;
+---
+
+<Base title="About" current="about" description="About Scott Kvitberg, how the editions work, and how prints are made and shipped.">
+  <div class="wrap about">
+    <section class="intro" aria-labelledby="about-title">
+      <h1 id="about-title" class="caps">About</h1>
+      <div class="intro-body">
+        <p class="lede">Somethings on the wall is the print shop of Scott Kvitberg, a photographer based in Oslo, Norway.</p>
+        <p>The photographs come from walks and journeys: doors and walls in the southern light, the halls of old buildings, and the snow, night and aurora of the north. Each one is offered in a single format and a small edition, and each print is signed.</p>
+        <img class="sig" src={href('/signature.png')} alt="Scott Kvitberg's signature" width="300" height="140" />
+      </div>
+      <div class="sheet side-photo">
+        <Image src={portrait.image} alt={portrait.caption} widths={[500, 900]} sizes="(min-width: 900px) 28vw, 100vw" />
+      </div>
+    </section>
+
+    <section id="editions" class="block" aria-labelledby="editions-title">
+      <h2 id="editions-title" class="caps">Editions</h2>
+      <dl class="rules">
+        <div>
+          <dt>{editionSize} prints of each photograph</dt>
+          <dd>Every photograph is printed {editionSize} times in total, across every size, and never again. When the last number is sold, the edition is closed.</dd>
+        </div>
+        <div>
+          <dt>Numbered in order</dt>
+          <dd>Prints are numbered in the order they are collected. The page for each photograph shows which numbers are gone and which number you will receive.</dd>
+        </div>
+        <div>
+          <dt>Signed certificate</dt>
+          <dd>Each print ships with a certificate of authenticity carrying its edition number, the paper and format, and the photographer's signature.</dd>
+        </div>
+        <div>
+          <dt>No discounts</dt>
+          <dd>The price of an edition does not go down. Collectors who buy early never see their print offered for less.</dd>
+        </div>
+      </dl>
+    </section>
+
+    <section id="shipping" class="block" aria-labelledby="shipping-title">
+      <h2 id="shipping-title" class="caps">Printing and shipping</h2>
+      <dl class="rules">
+        <div>
+          <dt>Made to order</dt>
+          <dd>Prints are made by a specialist fine art lab with archival pigment inks on Hahnemühle cotton paper, then checked, packed flat with corner protection and sent to you.</dd>
+        </div>
+        <div>
+          <dt>Worldwide</dt>
+          <dd>Orders are produced at the lab closest to you to keep delivery short. Shipping costs and any duties are shown before you pay.</dd>
+        </div>
+        <div>
+          <dt>Changing your mind</dt>
+          <dd>You have 14 days from delivery to return a print in its original condition.</dd>
+        </div>
+      </dl>
+    </section>
+  </div>
+</Base>
+
+<style>
+  .about {
+    padding-top: var(--space-4);
+  }
+  .intro {
+    display: grid;
+    grid-template-columns: minmax(0, 7fr) minmax(0, 4fr);
+    grid-template-areas: 'title photo' 'body photo';
+    gap: var(--space-4) clamp(32px, 6vw, 104px);
+    align-items: start;
+  }
+  .intro h1 {
+    grid-area: title;
+    font-size: clamp(64px, 11vw, 96px);
+    color: var(--cobalt);
+  }
+  .intro-body {
+    grid-area: body;
+    display: grid;
+    gap: var(--space-3);
+    max-width: 60ch;
+  }
+  .lede {
+    font-family: var(--display);
+    font-size: clamp(28px, 3vw, 40px);
+    line-height: 1.15;
+    color: var(--cobalt);
+  }
+  .sig {
+    width: 220px;
+  }
+  .side-photo {
+    grid-area: photo;
+  }
+  .block {
+    margin-top: var(--space-6);
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--rule);
+    display: grid;
+    grid-template-columns: minmax(0, 4fr) minmax(0, 7fr);
+    gap: var(--space-4);
+    scroll-margin-top: var(--space-3);
+  }
+  .block h2 {
+    font-size: clamp(40px, 5vw, 64px);
+    color: var(--cobalt);
+  }
+  .rules {
+    margin: 0;
+    display: grid;
+    gap: var(--space-3);
+  }
+  .rules dt {
+    font-variation-settings: 'wght' 640;
+    margin-bottom: 4px;
+  }
+  .rules dd {
+    margin: 0;
+    color: var(--ink-soft);
+    max-width: 60ch;
+  }
+  @media (max-width: 900px) {
+    .intro {
+      grid-template-columns: 1fr;
+      grid-template-areas: 'title' 'body' 'photo';
+    }
+    .block {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
