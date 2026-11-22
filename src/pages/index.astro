@@ -7,8 +7,15 @@ import { detailOf, eur, featured, href, pad, prints } from '../lib/prints';
 const pick = (s: string) => prints.find((p) => p.slug === s)!;
 // The four prints the hero cycles through; the featured print leads.
 // The four photographs the hero cycles through, strongest first. focus keeps the subject in frame when cropped.
-const slides = [pick('aurora-lofoten'), featured, pick('santana'), pick('oslo-s')];
-const focus: Record<string, string> = { 'aurora-lofoten': '50% 28%', 'the-red-wall': '62% 58%', santana: '50% 42%', 'oslo-s': '50% 62%' };
+const slides = ['aurora-lofoten', 'the-lion', 'elephant', 'zanzibar', 'the-cave', 'las-catedrales'].map(pick);
+const focus: Record<string, string> = {
+  'aurora-lofoten': '50% 28%',
+  'the-lion': '50% 42%',
+  elephant: '48% 50%',
+  zanzibar: '50% 50%',
+  'the-cave': '50% 40%',
+  'las-catedrales': '50% 45%',
+};
 const programme = prints.slice(0, 5);
 const band = pick('the-long-gallery');
 ---

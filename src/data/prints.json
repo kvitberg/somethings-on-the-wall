@@ -12,24 +12,14 @@
   "featured": "the-red-wall",
   "rooms": [
     {
-      "id": "south",
-      "title": "South",
-      "line": "Doors, walls and streets in the Mediterranean light."
-    },
-    {
-      "id": "halls",
-      "title": "Halls",
-      "line": "Stone, marble and the inside of great buildings."
+      "id": "east",
+      "title": "East",
+      "line": "Lions, elephants and the long grass of Tanzania."
     },
     {
       "id": "north",
       "title": "North",
       "line": "Snow, night and the northern light."
-    },
-    {
-      "id": "east",
-      "title": "East",
-      "line": "Lions, elephants and the long grass of Tanzania."
     },
     {
       "id": "islands",
@@ -42,6 +32,16 @@
       "line": "Monkeys, birds and a giant tortoise, up close."
     },
     {
+      "id": "halls",
+      "title": "Halls",
+      "line": "Stone, marble and the inside of great buildings."
+    },
+    {
+      "id": "south",
+      "title": "South",
+      "line": "Doors, walls and streets in the Mediterranean light."
+    },
+    {
       "id": "lines",
       "title": "Lines",
       "line": "Geometry, shadow and a single figure."
@@ -49,207 +49,115 @@
   ],
   "prints": [
     {
-      "slug": "the-green-door",
-      "file": "door",
-      "room": "south",
-      "title": "The Green Door",
-      "place": null,
-      "placeConfirmed": false,
-      "caption": "A weathered green double door set in a bright red frame, under a clear sky."
-    },
-    {
-      "slug": "madeira-door",
-      "file": "door-madeira",
-      "room": "south",
-      "title": "Madeira Door",
-      "place": "Madeira, Portugal",
+      "slug": "the-lion",
+      "file": "new/tanzania/01-31",
+      "raw": true,
+      "room": "east",
+      "title": "The Lion",
+      "place": "Tanzania",
       "placeConfirmed": true,
-      "caption": "A narrow carved door in an ochre wall, the paint worn back to stone."
-    },
-    {
-      "slug": "santana",
-      "file": "santana-traditional-house",
-      "room": "south",
-      "title": "Santana",
-      "place": "Santana, Madeira",
-      "placeConfirmed": true,
-      "caption": "A thatched A-frame house in white, red and blue, one of the traditional homes of Santana."
-    },
-    {
-      "slug": "the-red-wall",
-      "file": "woman-walking-downstairs",
-      "room": "south",
-      "title": "The Red Wall",
-      "place": null,
-      "placeConfirmed": false,
-      "caption": "A passer-by walks down a stepped street beside a deep red facade, cut in two by a diagonal shadow.",
+      "caption": "A male lion with a heavy mane looks out from the grass, eyes half closed.",
       "detail": {
-        "x": 79,
-        "y": 73,
-        "zoom": 2.1
+        "x": 50,
+        "y": 42,
+        "zoom": 2.2
       }
     },
     {
-      "slug": "tea-house",
-      "file": "tea-shop",
-      "room": "south",
-      "title": "Tea House",
-      "place": null,
-      "placeConfirmed": false,
-      "caption": "A small tea house with its shopfront lit up and plants spilling over the balcony."
-    },
-    {
-      "slug": "hydrant",
-      "file": "fire-hydrant",
-      "room": "south",
-      "title": "Hydrant",
-      "place": null,
-      "placeConfirmed": false,
-      "caption": "A red fire hydrant at the foot of a sunlit red wall, half in shadow."
-    },
-    {
-      "slug": "vespa",
-      "file": "vespa",
-      "room": "south",
-      "title": "Vespa",
-      "place": null,
-      "placeConfirmed": false,
-      "caption": "An orange Vespa with a sidecar, parked against an ochre wall."
-    },
-    {
-      "slug": "single-house",
-      "file": "enkelthus",
-      "room": "south",
-      "title": "Single House",
-      "place": null,
-      "placeConfirmed": false,
-      "caption": "A single low white house with a terracotta roof and red trim, wires running overhead."
-    },
-    {
-      "slug": "window-to-a-chimney",
-      "file": "window-to-a-chimney",
-      "room": "south",
-      "title": "Window to a Chimney",
-      "place": null,
-      "placeConfirmed": false,
-      "caption": "A ruined wall frames a chimney and a square of blue sky through an empty window."
-    },
-    {
-      "slug": "santana-house",
-      "file": "santana-house-madeira",
-      "room": "south",
-      "title": "Santana House",
-      "place": "Santana, Madeira",
+      "slug": "nala",
+      "file": "nala",
+      "room": "east",
+      "title": "Nala",
+      "place": "Serengeti, Tanzania",
       "placeConfirmed": true,
-      "caption": "A small thatched house with a green door, wires crossing a pale sky."
+      "caption": "A young lioness looks straight into the camera, eyes amber against the grass."
     },
     {
-      "slug": "roman-corner",
-      "file": "rome-1",
-      "room": "south",
-      "title": "Roman Corner",
-      "place": "Rome, Italy",
+      "slug": "simba",
+      "file": "simba",
+      "room": "east",
+      "title": "Simba",
+      "place": "Serengeti, Tanzania",
       "placeConfirmed": true,
-      "caption": "Pink and orange facades meet at a corner under a soft grey sky."
+      "caption": "A young lion rests in warm light, its gaze fixed past the camera."
     },
     {
-      "slug": "old-car",
-      "file": "old-car",
-      "room": "south",
-      "title": "Old Car",
-      "place": null,
-      "placeConfirmed": false,
-      "caption": "A small grey car parked outside a weathered ochre building."
-    },
-    {
-      "slug": "roma",
-      "file": "rome-2",
-      "room": "south",
-      "title": "Roma",
-      "place": "Rome, Italy",
+      "slug": "savanna",
+      "file": "savanna",
+      "room": "east",
+      "title": "Savanna",
+      "place": "Serengeti, Tanzania",
       "placeConfirmed": true,
-      "caption": "Orange facades and green shutters, stacked against a pale sky."
+      "caption": "Zebras gather at a waterhole beneath a lone acacia."
     },
     {
-      "slug": "basilica",
-      "file": "vatican-1",
-      "room": "halls",
-      "title": "Basilica",
-      "place": "Vatican City",
+      "slug": "zebras",
+      "file": "zebras",
+      "room": "east",
+      "title": "Zebras",
+      "place": "Serengeti, Tanzania",
       "placeConfirmed": true,
-      "caption": "The gilded coffers and arches of a basilica nave, drawn toward the light."
+      "caption": "A herd of zebras crowds the water’s edge, stripes against stripes."
     },
     {
-      "slug": "the-long-gallery",
-      "file": "vatican-2",
-      "room": "halls",
-      "title": "The Long Gallery",
-      "place": "Vatican City",
+      "slug": "elephant",
+      "file": "new/tanzania/01-32",
+      "raw": true,
+      "room": "east",
+      "title": "Elephant",
+      "place": "Tanzania",
       "placeConfirmed": true,
-      "caption": "A long gallery of marble and checkerboard floor, receding to a bright window."
+      "caption": "A lone elephant walks past bare trees in black and white.",
+      "detail": {
+        "x": 30,
+        "y": 58,
+        "zoom": 2
+      }
     },
     {
-      "slug": "laocoon",
-      "file": "vatican-5",
-      "room": "halls",
-      "title": "Laocoön",
-      "place": "Vatican City",
+      "slug": "in-the-shade",
+      "file": "new/tanzania/01-33",
+      "raw": true,
+      "room": "east",
+      "title": "In the Shade",
+      "place": "Tanzania",
       "placeConfirmed": true,
-      "caption": "The Laocoön group in its niche, white marble against dark stone."
+      "caption": "A lion lies in the shade of a tree, watching from the undergrowth."
     },
     {
-      "slug": "coffered-arch",
-      "file": "riga-3",
-      "room": "halls",
-      "title": "Coffered Arch",
-      "place": null,
-      "placeConfirmed": false,
-      "caption": "Looking straight up into a coffered stone arch, with a slice of blue sky."
-    },
-    {
-      "slug": "the-monument",
-      "file": "scott",
-      "room": "halls",
-      "title": "The Monument",
-      "place": "Edinburgh, Scotland",
-      "placeConfirmed": false,
-      "caption": "A gothic monument in dark stone with a seated white statue at its heart."
-    },
-    {
-      "slug": "fontana-di-trevi",
-      "file": "fontana-di-trevi",
-      "room": "halls",
-      "title": "Fontana di Trevi",
-      "place": "Rome, Italy",
+      "slug": "two-antelope",
+      "file": "new/tanzania/01-34",
+      "raw": true,
+      "room": "east",
+      "title": "Two Antelope",
+      "place": "Tanzania",
       "placeConfirmed": true,
-      "caption": "The Trevi Fountain lit at dusk, water falling over carved stone."
+      "caption": "Two antelope stand in golden grass under a wide blue sky."
     },
     {
-      "slug": "angel",
-      "file": "angel",
-      "room": "halls",
-      "title": "Angel",
-      "place": "Rome, Italy",
-      "placeConfirmed": false,
-      "caption": "A marble angel raised against a bright, pale sky."
-    },
-    {
-      "slug": "the-mosaic",
-      "file": "vatican-3",
-      "room": "halls",
-      "title": "The Mosaic",
-      "place": "Vatican City",
+      "slug": "baboon",
+      "file": "new/tanzania/01-37",
+      "raw": true,
+      "room": "east",
+      "title": "Baboon",
+      "place": "Tanzania",
       "placeConfirmed": true,
-      "caption": "A helmeted figure in mosaic, laid in rust, gold and deep blue."
+      "caption": "A baboon stares straight into the camera, its grey coat lit from the side.",
+      "detail": {
+        "x": 50,
+        "y": 30,
+        "zoom": 2.2
+      }
     },
     {
-      "slug": "peace-be-with-you",
-      "file": "riga-2",
-      "room": "halls",
-      "title": "Peace Be With You",
-      "place": null,
-      "placeConfirmed": false,
-      "caption": "A dark wooden door between white columns, the words Ramybė jums above it."
+      "slug": "weaver",
+      "file": "new/tanzania/01-38",
+      "raw": true,
+      "room": "east",
+      "title": "Weaver",
+      "place": "Tanzania",
+      "placeConfirmed": true,
+      "caption": "A yellow weaver bird perches among thin green branches."
     },
     {
       "slug": "oslo-s",
@@ -276,7 +184,12 @@
       "title": "Aurora, Lofoten",
       "place": "Lofoten, Norway",
       "placeConfirmed": true,
-      "caption": "Green and violet northern lights over dark mountains."
+      "caption": "Green and violet northern lights over dark mountains.",
+      "detail": {
+        "x": 50,
+        "y": 35,
+        "zoom": 1.6
+      }
     },
     {
       "slug": "northern-lights",
@@ -342,102 +255,6 @@
       "caption": "A hollow, broken tree stands alone in a green field under low cloud."
     },
     {
-      "slug": "the-lion",
-      "file": "new/tanzania/01-31",
-      "raw": true,
-      "room": "east",
-      "title": "The Lion",
-      "place": "Tanzania",
-      "placeConfirmed": true,
-      "caption": "A male lion with a heavy mane looks out from the grass, eyes half closed."
-    },
-    {
-      "slug": "nala",
-      "file": "nala",
-      "room": "east",
-      "title": "Nala",
-      "place": "Serengeti, Tanzania",
-      "placeConfirmed": true,
-      "caption": "A young lioness looks straight into the camera, eyes amber against the grass."
-    },
-    {
-      "slug": "simba",
-      "file": "simba",
-      "room": "east",
-      "title": "Simba",
-      "place": "Serengeti, Tanzania",
-      "placeConfirmed": true,
-      "caption": "A young lion rests in warm light, its gaze fixed past the camera."
-    },
-    {
-      "slug": "savanna",
-      "file": "savanna",
-      "room": "east",
-      "title": "Savanna",
-      "place": "Serengeti, Tanzania",
-      "placeConfirmed": true,
-      "caption": "Zebras gather at a waterhole beneath a lone acacia."
-    },
-    {
-      "slug": "zebras",
-      "file": "zebras",
-      "room": "east",
-      "title": "Zebras",
-      "place": "Serengeti, Tanzania",
-      "placeConfirmed": true,
-      "caption": "A herd of zebras crowds the water’s edge, stripes against stripes."
-    },
-    {
-      "slug": "elephant",
-      "file": "new/tanzania/01-32",
-      "raw": true,
-      "room": "east",
-      "title": "Elephant",
-      "place": "Tanzania",
-      "placeConfirmed": true,
-      "caption": "A lone elephant walks past bare trees in black and white."
-    },
-    {
-      "slug": "in-the-shade",
-      "file": "new/tanzania/01-33",
-      "raw": true,
-      "room": "east",
-      "title": "In the Shade",
-      "place": "Tanzania",
-      "placeConfirmed": true,
-      "caption": "A lion lies in the shade of a tree, watching from the undergrowth."
-    },
-    {
-      "slug": "two-antelope",
-      "file": "new/tanzania/01-34",
-      "raw": true,
-      "room": "east",
-      "title": "Two Antelope",
-      "place": "Tanzania",
-      "placeConfirmed": true,
-      "caption": "Two antelope stand in golden grass under a wide blue sky."
-    },
-    {
-      "slug": "baboon",
-      "file": "new/tanzania/01-37",
-      "raw": true,
-      "room": "east",
-      "title": "Baboon",
-      "place": "Tanzania",
-      "placeConfirmed": true,
-      "caption": "A baboon stares straight into the camera, its grey coat lit from the side."
-    },
-    {
-      "slug": "weaver",
-      "file": "new/tanzania/01-38",
-      "raw": true,
-      "room": "east",
-      "title": "Weaver",
-      "place": "Tanzania",
-      "placeConfirmed": true,
-      "caption": "A yellow weaver bird perches among thin green branches."
-    },
-    {
       "slug": "palm",
       "file": "new/gode-bilder/003058-92",
       "raw": true,
@@ -445,7 +262,12 @@
       "title": "Palm",
       "place": null,
       "placeConfirmed": false,
-      "caption": "A single palm leans over white sand and calm blue water."
+      "caption": "A single palm leans over white sand and calm blue water.",
+      "detail": {
+        "x": 62,
+        "y": 22,
+        "zoom": 2
+      }
     },
     {
       "slug": "zanzibar",
@@ -454,7 +276,12 @@
       "title": "Zanzibar",
       "place": "Zanzibar, Tanzania",
       "placeConfirmed": true,
-      "caption": "Turquoise water and a white beach under drifting summer clouds."
+      "caption": "Turquoise water and a white beach under drifting summer clouds.",
+      "detail": {
+        "x": 35,
+        "y": 62,
+        "zoom": 1.8
+      }
     },
     {
       "slug": "the-channel",
@@ -584,7 +411,12 @@
       "title": "The Cave",
       "place": null,
       "placeConfirmed": false,
-      "caption": "Light pours through a hole in a dark sea cave and onto the water."
+      "caption": "Light pours through a hole in a dark sea cave and onto the water.",
+      "detail": {
+        "x": 56,
+        "y": 36,
+        "zoom": 1.8
+      }
     },
     {
       "slug": "sea-cave",
@@ -714,7 +546,215 @@
       "title": "Parakeet",
       "place": null,
       "placeConfirmed": false,
-      "caption": "A green parakeet with a red beak perches among pale leaves."
+      "caption": "A green parakeet with a red beak perches among pale leaves.",
+      "detail": {
+        "x": 50,
+        "y": 28,
+        "zoom": 2.2
+      }
+    },
+    {
+      "slug": "basilica",
+      "file": "vatican-1",
+      "room": "halls",
+      "title": "Basilica",
+      "place": "Vatican City",
+      "placeConfirmed": true,
+      "caption": "The gilded coffers and arches of a basilica nave, drawn toward the light."
+    },
+    {
+      "slug": "the-long-gallery",
+      "file": "vatican-2",
+      "room": "halls",
+      "title": "The Long Gallery",
+      "place": "Vatican City",
+      "placeConfirmed": true,
+      "caption": "A long gallery of marble and checkerboard floor, receding to a bright window."
+    },
+    {
+      "slug": "laocoon",
+      "file": "vatican-5",
+      "room": "halls",
+      "title": "Laocoön",
+      "place": "Vatican City",
+      "placeConfirmed": true,
+      "caption": "The Laocoön group in its niche, white marble against dark stone."
+    },
+    {
+      "slug": "coffered-arch",
+      "file": "riga-3",
+      "room": "halls",
+      "title": "Coffered Arch",
+      "place": null,
+      "placeConfirmed": false,
+      "caption": "Looking straight up into a coffered stone arch, with a slice of blue sky."
+    },
+    {
+      "slug": "the-monument",
+      "file": "scott",
+      "room": "halls",
+      "title": "The Monument",
+      "place": "Edinburgh, Scotland",
+      "placeConfirmed": false,
+      "caption": "A gothic monument in dark stone with a seated white statue at its heart."
+    },
+    {
+      "slug": "fontana-di-trevi",
+      "file": "fontana-di-trevi",
+      "room": "halls",
+      "title": "Fontana di Trevi",
+      "place": "Rome, Italy",
+      "placeConfirmed": true,
+      "caption": "The Trevi Fountain lit at dusk, water falling over carved stone."
+    },
+    {
+      "slug": "angel",
+      "file": "angel",
+      "room": "halls",
+      "title": "Angel",
+      "place": "Rome, Italy",
+      "placeConfirmed": false,
+      "caption": "A marble angel raised against a bright, pale sky."
+    },
+    {
+      "slug": "the-mosaic",
+      "file": "vatican-3",
+      "room": "halls",
+      "title": "The Mosaic",
+      "place": "Vatican City",
+      "placeConfirmed": true,
+      "caption": "A helmeted figure in mosaic, laid in rust, gold and deep blue."
+    },
+    {
+      "slug": "peace-be-with-you",
+      "file": "riga-2",
+      "room": "halls",
+      "title": "Peace Be With You",
+      "place": null,
+      "placeConfirmed": false,
+      "caption": "A dark wooden door between white columns, the words Ramybė jums above it."
+    },
+    {
+      "slug": "the-red-wall",
+      "file": "woman-walking-downstairs",
+      "room": "south",
+      "title": "The Red Wall",
+      "place": null,
+      "placeConfirmed": false,
+      "caption": "A passer-by walks down a stepped street beside a deep red facade, cut in two by a diagonal shadow.",
+      "detail": {
+        "x": 79,
+        "y": 73,
+        "zoom": 2.1
+      }
+    },
+    {
+      "slug": "the-green-door",
+      "file": "door",
+      "room": "south",
+      "title": "The Green Door",
+      "place": null,
+      "placeConfirmed": false,
+      "caption": "A weathered green double door set in a bright red frame, under a clear sky."
+    },
+    {
+      "slug": "madeira-door",
+      "file": "door-madeira",
+      "room": "south",
+      "title": "Madeira Door",
+      "place": "Madeira, Portugal",
+      "placeConfirmed": true,
+      "caption": "A narrow carved door in an ochre wall, the paint worn back to stone."
+    },
+    {
+      "slug": "santana",
+      "file": "santana-traditional-house",
+      "room": "south",
+      "title": "Santana",
+      "place": "Santana, Madeira",
+      "placeConfirmed": true,
+      "caption": "A thatched A-frame house in white, red and blue, one of the traditional homes of Santana."
+    },
+    {
+      "slug": "tea-house",
+      "file": "tea-shop",
+      "room": "south",
+      "title": "Tea House",
+      "place": null,
+      "placeConfirmed": false,
+      "caption": "A small tea house with its shopfront lit up and plants spilling over the balcony."
+    },
+    {
+      "slug": "hydrant",
+      "file": "fire-hydrant",
+      "room": "south",
+      "title": "Hydrant",
+      "place": null,
+      "placeConfirmed": false,
+      "caption": "A red fire hydrant at the foot of a sunlit red wall, half in shadow."
+    },
+    {
+      "slug": "vespa",
+      "file": "vespa",
+      "room": "south",
+      "title": "Vespa",
+      "place": null,
+      "placeConfirmed": false,
+      "caption": "An orange Vespa with a sidecar, parked against an ochre wall."
+    },
+    {
+      "slug": "single-house",
+      "file": "enkelthus",
+      "room": "south",
+      "title": "Single House",
+      "place": null,
+      "placeConfirmed": false,
+      "caption": "A single low white house with a terracotta roof and red trim, wires running overhead."
+    },
+    {
+      "slug": "window-to-a-chimney",
+      "file": "window-to-a-chimney",
+      "room": "south",
+      "title": "Window to a Chimney",
+      "place": null,
+      "placeConfirmed": false,
+      "caption": "A ruined wall frames a chimney and a square of blue sky through an empty window."
+    },
+    {
+      "slug": "santana-house",
+      "file": "santana-house-madeira",
+      "room": "south",
+      "title": "Santana House",
+      "place": "Santana, Madeira",
+      "placeConfirmed": true,
+      "caption": "A small thatched house with a green door, wires crossing a pale sky."
+    },
+    {
+      "slug": "roman-corner",
+      "file": "rome-1",
+      "room": "south",
+      "title": "Roman Corner",
+      "place": "Rome, Italy",
+      "placeConfirmed": true,
+      "caption": "Pink and orange facades meet at a corner under a soft grey sky."
+    },
+    {
+      "slug": "old-car",
+      "file": "old-car",
+      "room": "south",
+      "title": "Old Car",
+      "place": null,
+      "placeConfirmed": false,
+      "caption": "A small grey car parked outside a weathered ochre building."
+    },
+    {
+      "slug": "roma",
+      "file": "rome-2",
+      "room": "south",
+      "title": "Roma",
+      "place": "Rome, Italy",
+      "placeConfirmed": true,
+      "caption": "Orange facades and green shutters, stacked against a pale sky."
     },
     {
       "slug": "the-balcony",
@@ -732,7 +772,12 @@
       "title": "Las Catedrales",
       "place": "Galicia, Spain",
       "placeConfirmed": false,
-      "caption": "A cave mouth opens onto sea arches on a wet beach, in black and white."
+      "caption": "A cave mouth opens onto sea arches on a wet beach, in black and white.",
+      "detail": {
+        "x": 50,
+        "y": 42,
+        "zoom": 1.7
+      }
     },
     {
       "slug": "three-windows",
