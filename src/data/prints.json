@@ -24,7 +24,12 @@
     {
       "id": "north",
       "title": "North",
-      "line": "Snow, night and northern light in Norway."
+      "line": "Snow, night and the northern light."
+    },
+    {
+      "id": "east",
+      "title": "East",
+      "line": "Lions, zebras and the coast, from the Serengeti to Zanzibar."
     },
     {
       "id": "lines",
@@ -120,6 +125,42 @@
       "caption": "A ruined wall frames a chimney and a square of blue sky through an empty window."
     },
     {
+      "slug": "santana-house",
+      "file": "santana-house-madeira",
+      "room": "south",
+      "title": "Santana House",
+      "place": "Santana, Madeira",
+      "placeConfirmed": true,
+      "caption": "A small thatched house with a green door, wires crossing a pale sky."
+    },
+    {
+      "slug": "roman-corner",
+      "file": "rome-1",
+      "room": "south",
+      "title": "Roman Corner",
+      "place": "Rome, Italy",
+      "placeConfirmed": true,
+      "caption": "Pink and orange facades meet at a corner under a soft grey sky."
+    },
+    {
+      "slug": "old-car",
+      "file": "old-car",
+      "room": "south",
+      "title": "Old Car",
+      "place": null,
+      "placeConfirmed": false,
+      "caption": "A small grey car parked outside a weathered ochre building."
+    },
+    {
+      "slug": "roma",
+      "file": "rome-2",
+      "room": "south",
+      "title": "Roma",
+      "place": "Rome, Italy",
+      "placeConfirmed": true,
+      "caption": "Orange facades and green shutters, stacked against a pale sky."
+    },
+    {
       "slug": "basilica",
       "file": "vatican-1",
       "room": "halls",
@@ -165,13 +206,40 @@
       "caption": "A gothic monument in dark stone with a seated white statue at its heart."
     },
     {
-      "slug": "las-catedrales",
-      "file": "catedral-spain",
+      "slug": "fontana-di-trevi",
+      "file": "fontana-di-trevi",
       "room": "halls",
-      "title": "Las Catedrales",
-      "place": "Galicia, Spain",
+      "title": "Fontana di Trevi",
+      "place": "Rome, Italy",
+      "placeConfirmed": true,
+      "caption": "The Trevi Fountain lit at dusk, water falling over carved stone."
+    },
+    {
+      "slug": "angel",
+      "file": "angel",
+      "room": "halls",
+      "title": "Angel",
+      "place": "Rome, Italy",
       "placeConfirmed": false,
-      "caption": "A cave mouth opens onto sea arches on a wet beach, in black and white."
+      "caption": "A marble angel raised against a bright, pale sky."
+    },
+    {
+      "slug": "the-mosaic",
+      "file": "vatican-3",
+      "room": "halls",
+      "title": "The Mosaic",
+      "place": "Vatican City",
+      "placeConfirmed": true,
+      "caption": "A helmeted figure in mosaic, laid in rust, gold and deep blue."
+    },
+    {
+      "slug": "peace-be-with-you",
+      "file": "riga-2",
+      "room": "halls",
+      "title": "Peace Be With You",
+      "place": null,
+      "placeConfirmed": false,
+      "caption": "A dark wooden door between white columns, the words Ramybė jums above it."
     },
     {
       "slug": "oslo-s",
@@ -228,6 +296,87 @@
       "caption": "A narrow path between tall, mist-soaked spruce."
     },
     {
+      "slug": "night-shift",
+      "file": "corrals",
+      "room": "north",
+      "title": "Night Shift",
+      "place": null,
+      "placeConfirmed": false,
+      "caption": "An office block at night, a few windows lit above a glowing sign."
+    },
+    {
+      "slug": "botsparken",
+      "file": "botsparken",
+      "room": "north",
+      "title": "Botsparken",
+      "place": "Oslo, Norway",
+      "placeConfirmed": true,
+      "caption": "A single lamp glows in a dark park at night."
+    },
+    {
+      "slug": "the-tower",
+      "file": "riga-1",
+      "room": "north",
+      "title": "The Tower",
+      "place": null,
+      "placeConfirmed": false,
+      "caption": "A red brick tower with a flag on a green hill above red roofs."
+    },
+    {
+      "slug": "old-tree",
+      "file": "tree-funchal-forest",
+      "room": "north",
+      "title": "Old Tree",
+      "place": "Madeira, Portugal",
+      "placeConfirmed": false,
+      "caption": "A hollow, broken tree stands alone in a green field under low cloud."
+    },
+    {
+      "slug": "nala",
+      "file": "nala",
+      "room": "east",
+      "title": "Nala",
+      "place": "Serengeti, Tanzania",
+      "placeConfirmed": true,
+      "caption": "A young lioness looks straight into the camera, eyes amber against the grass."
+    },
+    {
+      "slug": "simba",
+      "file": "simba",
+      "room": "east",
+      "title": "Simba",
+      "place": "Serengeti, Tanzania",
+      "placeConfirmed": true,
+      "caption": "A young lion rests in warm light, its gaze fixed past the camera."
+    },
+    {
+      "slug": "savanna",
+      "file": "savanna",
+      "room": "east",
+      "title": "Savanna",
+      "place": "Serengeti, Tanzania",
+      "placeConfirmed": true,
+      "caption": "Zebras gather at a waterhole beneath a lone acacia."
+    },
+    {
+      "slug": "zebras",
+      "file": "zebras",
+      "room": "east",
+      "title": "Zebras",
+      "place": "Serengeti, Tanzania",
+      "placeConfirmed": true,
+      "caption": "A herd of zebras crowds the water’s edge, stripes against stripes."
+    },
+    {
+      "slug": "zanzibar",
+      "file": "zanzibar",
+      "room": "east",
+      "title": "Zanzibar",
+      "place": "Zanzibar, Tanzania",
+      "placeConfirmed": true,
+      "caption": "Turquoise water and a white beach under drifting summer clouds."
+    },
+    {
       "slug": "the-balcony",
       "file": "old-guy",
       "room": "lines",
@@ -237,13 +386,13 @@
       "caption": "Yellow balconies at a sharp angle, an old man leaning out of one."
     },
     {
-      "slug": "night-shift",
-      "file": "corrals",
+      "slug": "las-catedrales",
+      "file": "catedral-spain",
       "room": "lines",
-      "title": "Night Shift",
-      "place": null,
+      "title": "Las Catedrales",
+      "place": "Galicia, Spain",
       "placeConfirmed": false,
-      "caption": "An office block at night, a few windows lit above a glowing sign."
+      "caption": "A cave mouth opens onto sea arches on a wet beach, in black and white."
     },
     {
       "slug": "three-windows",
@@ -280,12 +429,33 @@
       "place": "Sagres, Portugal",
       "placeConfirmed": true,
       "caption": "A low building sits on a rocky plateau under a pale sky."
+    },
+    {
+      "slug": "glass-facade",
+      "file": "artsy-vindu",
+      "room": "lines",
+      "title": "Glass Facade",
+      "place": null,
+      "placeConfirmed": false,
+      "caption": "A white facade of small glass panes, a street lamp standing in front."
+    },
+    {
+      "slug": "payphone",
+      "file": "telefon",
+      "room": "lines",
+      "title": "Payphone",
+      "place": null,
+      "placeConfirmed": false,
+      "caption": "A worn public payphone covered in stickers and scratched notes."
+    },
+    {
+      "slug": "the-colonnade",
+      "file": "wes",
+      "room": "lines",
+      "title": "The Colonnade",
+      "place": null,
+      "placeConfirmed": false,
+      "caption": "A grey classical facade with columns and two lamp posts, perfectly centred."
     }
-  ],
-  "heroGrid": [
-    "santana",
-    "oslo-s",
-    "the-long-gallery",
-    "the-balcony"
   ]
 }

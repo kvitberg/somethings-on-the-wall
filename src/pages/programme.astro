@@ -2,14 +2,14 @@
 import { Image } from 'astro:assets';
 import Base from '../layouts/Base.astro';
 import Programme from '../components/Programme.astro';
-import { href, pad, prints, printsInRoom, rooms } from '../lib/prints';
+import { href, inWords, pad, prints, printsInRoom, roomLayout, rooms } from '../lib/prints';
 ---
 
-<Base title="Programme" current="programme" description="Every print in the season: twenty-seven photographs by Scott Kvitberg, each in an edition of 25.">
+<Base title="Programme" current="programme" description={`Every print in the season: ${prints.length} photographs by Scott Kvitberg, each in an edition of 25.`}>
   <section class="wrap head">
     <h1 class="caps title">Programme</h1>
     <div class="head-side">
-      <p>Twenty-seven photographs in four rooms. Each is printed in a single format, in an edition of twenty-five, and signed.</p>
+      <p>{prints.length} photographs in {inWords(rooms.length)} rooms. Each is printed in a single format, in an edition of twenty-five, and signed.</p>
       <nav class="room-links" aria-label="Rooms">
         {
           rooms.map((r) => (
@@ -25,19 +25,19 @@ import { href, pad, prints, printsInRoom, rooms } from '../lib/prints';
 
   <div id="rooms">
     {
-      rooms.map((room, ri) => (
+      rooms.map((room, ri) => {
+        const items = printsInRoom(room.id);
+        const layout = roomLayout(items.length);
+        return (
         <section id={`room-${room.id}`} class:list={['room', { 'on-night': room.id === 'north' }]} aria-labelledby={`room-${room.id}-title`}>
           <div class="wrap">
             <header class="room-head" data-reveal>
               <h2 id={`room-${room.id}-title`} class="caps room-title">{room.title}</h2>
               <p class="room-line">{room.line}</p>
             </header>
-            <ul
-              class:list={['room-grid', { flip: ri % 2 === 1, 'odd-tail': (printsInRoom(room.id).length - 1) % 2 === 1 }]}
-              style={`--cols:${printsInRoom(room.id).length % 4 === 1 ? 4 : 3}`}
-            >
-              {printsInRoom(room.id).map((p, i) => (
-                <li>
+            <ul class:list={['room-grid', { flip: ri % 2 === 1, 'odd-tail': layout.oddTail }]} style={`--cols:${layout.cols}`}>
+              {items.map((p, i) => (
+                <li class:list={{ big: layout.bigs[0] === i, 'big-2': layout.bigs[1] === i, landscape: p.image.width > p.image.height }}>
                   <a class="piece" href={href(`/prints/${p.slug}/`)}>
                     <div class="sheet" data-reveal="img" style={`--i:${i % 4}`}>
                       <Image src={p.image} alt={p.caption} widths={[400, 700, 1100]} sizes="(min-width: 900px) 25vw, 50vw" loading="lazy" style={`view-transition-name: vt-${p.slug}`} />
@@ -53,7 +53,8 @@ import { href, pad, prints, printsInRoom, rooms } from '../lib/prints';
             </ul>
           </div>
         </section>
-      ))
+        );
+      })
     }
   </div>
 
@@ -161,12 +162,19 @@ import { href, pad, prints, printsInRoom, rooms } from '../lib/prints';
     gap: var(--space-5) clamp(16px, 2.4vw, 36px);
     align-items: start;
   }
-  .room-grid > li:first-child {
-    grid-column: span 2;
+  .room-grid > li.big {
+    grid-column: 1 / span 2;
     grid-row: span 2;
   }
-  .room-grid.flip > li:first-child {
+  .room-grid > li.big-2 {
     grid-column: -3 / span 2;
+    grid-row: span 2;
+  }
+  .room-grid.flip > li.big {
+    grid-column: -3 / span 2;
+  }
+  .room-grid.flip > li.big-2 {
+    grid-column: 1 / span 2;
   }
   .piece {
     display: grid;
@@ -219,10 +227,11 @@ import { href, pad, prints, printsInRoom, rooms } from '../lib/prints';
     .room-grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
-    .room-grid.flip > li:first-child {
+    .room-grid > li.big,
+    .room-grid > li.big-2,
+    .room-grid.flip > li.big,
+    .room-grid.flip > li.big-2 {
       grid-column: span 2;
-    }
-    .room-grid > li:first-child {
       grid-row: auto;
     }
     .room-grid.odd-tail > li:last-child {

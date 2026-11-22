@@ -12,8 +12,11 @@ const outDir = path.join(root, 'src/assets/prints');
 const data = JSON.parse(fs.readFileSync(path.join(root, 'src/data/prints.json'), 'utf8'));
 fs.mkdirSync(outDir, { recursive: true });
 
-// The Etsy template places the photo at the same spot in every 3300x4200 file.
-const TEMPLATE = { left: 488, top: 456, right: 2808, bottom: 3748 };
+// The Etsy template places the photo at the same spot in every file of the same orientation.
+const TEMPLATES = {
+  portrait: { left: 488, top: 456, right: 2808, bottom: 3748 }, // 3300x4200
+  landscape: { left: 458, top: 433, right: 3747, bottom: 2861 }, // 4200x3300
+};
 const INSET = 6; // stay clear of the anti-aliased edge
 
 // Find the photo edge by scanning inward for the first mostly non-white line,
@@ -33,8 +36,9 @@ async function photoBounds(file) {
   let t = 0; while (t < H / 2 && !row(t)) t++;
   let b = H - 1; while (b > H / 2 && !row(b)) b--;
   const found = { left: l, top: t, right: r, bottom: b };
-  const off = Object.keys(TEMPLATE).some((k) => Math.abs(found[k] - TEMPLATE[k]) > 24);
-  return { bounds: off ? TEMPLATE : found, usedTemplate: off };
+  const template = W > H ? TEMPLATES.landscape : TEMPLATES.portrait;
+  const off = Object.keys(template).some((k) => Math.abs(found[k] - template[k]) > 24);
+  return { bounds: off ? template : found, usedTemplate: off };
 }
 
 for (const p of data.prints) {
