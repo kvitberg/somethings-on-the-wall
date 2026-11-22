@@ -41,22 +41,32 @@ async function photoBounds(file) {
   return { bounds: off ? template : found, usedTemplate: off };
 }
 
+const only = process.argv.slice(3); // optional slugs to (re)build; default all
 for (const p of data.prints) {
+  if (only.length && !only.includes(p.slug)) continue;
   const src = path.join(originals, `${p.file}.jpg`);
-  const { bounds, usedTemplate } = await photoBounds(src);
-  const region = {
-    left: bounds.left + INSET,
-    top: bounds.top + INSET,
-    width: bounds.right - bounds.left - 2 * INSET,
-    height: bounds.bottom - bounds.top - 2 * INSET,
-  };
-  await sharp(src)
-    .extract(region)
+  // Etsy files carry a white border to crop off; raw photos are used whole.
+  let pipeline = sharp(src).rotate();
+  let note = 'raw     ';
+  if (!p.raw) {
+    const { bounds, usedTemplate } = await photoBounds(src);
+    const region = {
+      left: bounds.left + INSET,
+      top: bounds.top + INSET,
+      width: bounds.right - bounds.left - 2 * INSET,
+      height: bounds.bottom - bounds.top - 2 * INSET,
+    };
+    pipeline = sharp(src).extract(region);
+    note = usedTemplate ? 'template' : 'scanned ';
+  }
+  // withExif replaces all metadata, so camera data and GPS never reach the public repo.
+  const info = await pipeline
     .resize({ width: 2000, height: 2000, fit: 'inside' })
+    .keepIccProfile()
+    .withExif({ IFD0: { Copyright: '© Scott Kvitberg', Artist: 'Scott Kvitberg', ImageDescription: `${p.title}. Photograph by Scott Kvitberg.` } })
     .jpeg({ quality: 84, mozjpeg: true })
-    .withMetadata({ exif: { IFD0: { Copyright: '© Scott Kvitberg', Artist: 'Scott Kvitberg', ImageDescription: `${p.title}. Photograph by Scott Kvitberg.` } } })
     .toFile(path.join(outDir, `${p.slug}.jpg`));
-  console.log(p.slug.padEnd(22), usedTemplate ? 'template' : 'scanned ', region.width + 'x' + region.height);
+  console.log(p.slug.padEnd(22), note, info.width + 'x' + info.height);
 }
 
 // Signature: the ink below the photo's bottom-right corner, as ink-on-transparent.

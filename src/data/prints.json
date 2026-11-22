@@ -29,7 +29,17 @@
     {
       "id": "east",
       "title": "East",
-      "line": "Lions, zebras and the coast, from the Serengeti to Zanzibar."
+      "line": "Lions, elephants and the long grass of Tanzania."
+    },
+    {
+      "id": "islands",
+      "title": "Islands",
+      "line": "Sand, palms and painted houses on warm-water islands."
+    },
+    {
+      "id": "wild",
+      "title": "Wild",
+      "line": "Monkeys, birds and a giant tortoise, up close."
     },
     {
       "id": "lines",
@@ -332,6 +342,16 @@
       "caption": "A hollow, broken tree stands alone in a green field under low cloud."
     },
     {
+      "slug": "the-lion",
+      "file": "new/tanzania/01-31",
+      "raw": true,
+      "room": "east",
+      "title": "The Lion",
+      "place": "Tanzania",
+      "placeConfirmed": true,
+      "caption": "A male lion with a heavy mane looks out from the grass, eyes half closed."
+    },
+    {
       "slug": "nala",
       "file": "nala",
       "room": "east",
@@ -368,13 +388,333 @@
       "caption": "A herd of zebras crowds the water’s edge, stripes against stripes."
     },
     {
+      "slug": "elephant",
+      "file": "new/tanzania/01-32",
+      "raw": true,
+      "room": "east",
+      "title": "Elephant",
+      "place": "Tanzania",
+      "placeConfirmed": true,
+      "caption": "A lone elephant walks past bare trees in black and white."
+    },
+    {
+      "slug": "in-the-shade",
+      "file": "new/tanzania/01-33",
+      "raw": true,
+      "room": "east",
+      "title": "In the Shade",
+      "place": "Tanzania",
+      "placeConfirmed": true,
+      "caption": "A lion lies in the shade of a tree, watching from the undergrowth."
+    },
+    {
+      "slug": "two-antelope",
+      "file": "new/tanzania/01-34",
+      "raw": true,
+      "room": "east",
+      "title": "Two Antelope",
+      "place": "Tanzania",
+      "placeConfirmed": true,
+      "caption": "Two antelope stand in golden grass under a wide blue sky."
+    },
+    {
+      "slug": "baboon",
+      "file": "new/tanzania/01-37",
+      "raw": true,
+      "room": "east",
+      "title": "Baboon",
+      "place": "Tanzania",
+      "placeConfirmed": true,
+      "caption": "A baboon stares straight into the camera, its grey coat lit from the side."
+    },
+    {
+      "slug": "weaver",
+      "file": "new/tanzania/01-38",
+      "raw": true,
+      "room": "east",
+      "title": "Weaver",
+      "place": "Tanzania",
+      "placeConfirmed": true,
+      "caption": "A yellow weaver bird perches among thin green branches."
+    },
+    {
+      "slug": "palm",
+      "file": "new/gode-bilder/003058-92",
+      "raw": true,
+      "room": "islands",
+      "title": "Palm",
+      "place": null,
+      "placeConfirmed": false,
+      "caption": "A single palm leans over white sand and calm blue water."
+    },
+    {
       "slug": "zanzibar",
       "file": "zanzibar",
-      "room": "east",
+      "room": "islands",
       "title": "Zanzibar",
       "place": "Zanzibar, Tanzania",
       "placeConfirmed": true,
       "caption": "Turquoise water and a white beach under drifting summer clouds."
+    },
+    {
+      "slug": "the-channel",
+      "file": "new/gode-bilder/003058-103",
+      "raw": true,
+      "room": "islands",
+      "title": "The Channel",
+      "place": null,
+      "placeConfirmed": false,
+      "caption": "A narrow channel cut through dark rocks leads to a turquoise sea."
+    },
+    {
+      "slug": "corner-shop",
+      "file": "new/gode-bilder/003058-175",
+      "raw": true,
+      "room": "islands",
+      "title": "Corner Shop",
+      "place": null,
+      "placeConfirmed": false,
+      "caption": "A small corner shop glows under power lines at night."
+    },
+    {
+      "slug": "window-to-the-sea",
+      "file": "new/gode-bilder/003058-559",
+      "raw": true,
+      "room": "islands",
+      "title": "Window to the Sea",
+      "place": null,
+      "placeConfirmed": false,
+      "caption": "An empty concrete window frames palms and breaking surf."
+    },
+    {
+      "slug": "cove",
+      "file": "new/gode-bilder/003058-565",
+      "raw": true,
+      "room": "islands",
+      "title": "Cove",
+      "place": null,
+      "placeConfirmed": false,
+      "caption": "Palms and dark rocks above a quiet sandy cove."
+    },
+    {
+      "slug": "sand-path",
+      "file": "new/gode-bilder/003058-586",
+      "raw": true,
+      "room": "islands",
+      "title": "Sand Path",
+      "place": null,
+      "placeConfirmed": false,
+      "caption": "A sandy path winds between rocks and palms toward the coast."
+    },
+    {
+      "slug": "dusk",
+      "file": "new/gode-bilder/003058-588",
+      "raw": true,
+      "room": "islands",
+      "title": "Dusk",
+      "place": null,
+      "placeConfirmed": false,
+      "caption": "Palms and pink clouds above a quiet street at dusk."
+    },
+    {
+      "slug": "last-light",
+      "file": "new/gode-bilder/003058-589",
+      "raw": true,
+      "room": "islands",
+      "title": "Last Light",
+      "place": null,
+      "placeConfirmed": false,
+      "caption": "A tall pale building catches the last pink light of the evening."
+    },
+    {
+      "slug": "blue-house",
+      "file": "new/gode-bilder/003058-591",
+      "raw": true,
+      "room": "islands",
+      "title": "Blue House",
+      "place": null,
+      "placeConfirmed": false,
+      "caption": "A small pale blue wooden house on a dirt road, a red car beside it."
+    },
+    {
+      "slug": "green-house",
+      "file": "new/gode-bilder/003058-731",
+      "raw": true,
+      "room": "islands",
+      "title": "Green House",
+      "place": null,
+      "placeConfirmed": false,
+      "caption": "A green and red wooden house on a quiet corner at sunset."
+    },
+    {
+      "slug": "night-street",
+      "file": "new/gode-bilder/003058-745",
+      "raw": true,
+      "room": "islands",
+      "title": "Night Street",
+      "place": null,
+      "placeConfirmed": false,
+      "caption": "A single lamp lights a dark street lined with houses."
+    },
+    {
+      "slug": "after-dark",
+      "file": "new/gode-bilder/003058-747",
+      "raw": true,
+      "room": "islands",
+      "title": "After Dark",
+      "place": null,
+      "placeConfirmed": false,
+      "caption": "Wooden houses glow under the streetlights after dark."
+    },
+    {
+      "slug": "to-the-sea",
+      "file": "new/gode-bilder/003058-784",
+      "raw": true,
+      "room": "islands",
+      "title": "To the Sea",
+      "place": null,
+      "placeConfirmed": false,
+      "caption": "A dirt path under casuarina trees opens onto the sea."
+    },
+    {
+      "slug": "the-cave",
+      "file": "new/gode-bilder/003058-793",
+      "raw": true,
+      "room": "islands",
+      "title": "The Cave",
+      "place": null,
+      "placeConfirmed": false,
+      "caption": "Light pours through a hole in a dark sea cave and onto the water."
+    },
+    {
+      "slug": "sea-cave",
+      "file": "new/gode-bilder/003058-804",
+      "raw": true,
+      "room": "islands",
+      "title": "Sea Cave",
+      "place": null,
+      "placeConfirmed": false,
+      "caption": "A wide opening in a sea cave, reflected in the still water below."
+    },
+    {
+      "slug": "breakwater",
+      "file": "new/gode-bilder/003058-84",
+      "raw": true,
+      "room": "islands",
+      "title": "Breakwater",
+      "place": null,
+      "placeConfirmed": false,
+      "caption": "A rock breakwater and a sandy path along a turquoise sea."
+    },
+    {
+      "slug": "boardwalk",
+      "file": "new/gode-bilder/003058-87",
+      "raw": true,
+      "room": "islands",
+      "title": "Boardwalk",
+      "place": null,
+      "placeConfirmed": false,
+      "caption": "A wooden boardwalk runs along the beach under leaning palms."
+    },
+    {
+      "slug": "the-monkey",
+      "file": "new/gode-bilder/003058-253",
+      "raw": true,
+      "room": "wild",
+      "title": "The Monkey",
+      "place": null,
+      "placeConfirmed": false,
+      "caption": "A green monkey sits on a white ledge against a wall of leaves."
+    },
+    {
+      "slug": "waxbill",
+      "file": "new/mauritius/10-2",
+      "raw": true,
+      "room": "wild",
+      "title": "Waxbill",
+      "place": "Mauritius",
+      "placeConfirmed": true,
+      "caption": "A small waxbill with a red mask sits on a thin stem among dark leaves."
+    },
+    {
+      "slug": "bulbul",
+      "file": "new/mauritius/10-4",
+      "raw": true,
+      "room": "wild",
+      "title": "Bulbul",
+      "place": "Mauritius",
+      "placeConfirmed": true,
+      "caption": "A crested bulbul rests on a lichen-covered branch."
+    },
+    {
+      "slug": "macaque",
+      "file": "new/mauritius/10-6",
+      "raw": true,
+      "room": "wild",
+      "title": "Macaque",
+      "place": "Mauritius",
+      "placeConfirmed": true,
+      "caption": "A macaque looks into the forest, its face in soft light."
+    },
+    {
+      "slug": "giant-tortoise",
+      "file": "new/mauritius/10-7",
+      "raw": true,
+      "room": "wild",
+      "title": "Giant Tortoise",
+      "place": "Mauritius",
+      "placeConfirmed": true,
+      "caption": "A giant tortoise stretches its neck out from its domed shell."
+    },
+    {
+      "slug": "lizard",
+      "file": "new/gode-bilder/003058-206",
+      "raw": true,
+      "room": "wild",
+      "title": "Lizard",
+      "place": null,
+      "placeConfirmed": false,
+      "caption": "A small lizard pauses on the forest floor under bright green leaves."
+    },
+    {
+      "slug": "among-the-pines",
+      "file": "new/gode-bilder/003058-209",
+      "raw": true,
+      "room": "wild",
+      "title": "Among the Pines",
+      "place": null,
+      "placeConfirmed": false,
+      "caption": "A small bird perches in a pine tree, half hidden by needles."
+    },
+    {
+      "slug": "parakeet-on-a-wire",
+      "file": "new/gode-bilder/003058-297",
+      "raw": true,
+      "room": "wild",
+      "title": "Parakeet on a Wire",
+      "place": null,
+      "placeConfirmed": false,
+      "caption": "A green parakeet balances on a wire among the trees."
+    },
+    {
+      "slug": "watching",
+      "file": "new/gode-bilder/003058-498",
+      "raw": true,
+      "room": "wild",
+      "title": "Watching",
+      "place": null,
+      "placeConfirmed": false,
+      "caption": "A monkey crouches on a branch, looking straight back."
+    },
+    {
+      "slug": "parakeet",
+      "file": "new/gode-bilder/003058-761",
+      "raw": true,
+      "room": "wild",
+      "title": "Parakeet",
+      "place": null,
+      "placeConfirmed": false,
+      "caption": "A green parakeet with a red beak perches among pale leaves."
     },
     {
       "slug": "the-balcony",
@@ -456,6 +796,46 @@
       "place": null,
       "placeConfirmed": false,
       "caption": "A grey classical facade with columns and two lamp posts, perfectly centred."
+    },
+    {
+      "slug": "the-tunnel",
+      "file": "new/gode-bilder/003058-555",
+      "raw": true,
+      "room": "lines",
+      "title": "The Tunnel",
+      "place": null,
+      "placeConfirmed": false,
+      "caption": "A row of rounded concrete arches recedes into green light."
+    },
+    {
+      "slug": "the-ruin",
+      "file": "new/gode-bilder/003058-556",
+      "raw": true,
+      "room": "lines",
+      "title": "The Ruin",
+      "place": null,
+      "placeConfirmed": false,
+      "caption": "Columns of an abandoned building, overgrown with green."
+    },
+    {
+      "slug": "corridor",
+      "file": "new/gode-bilder/003058-558",
+      "raw": true,
+      "room": "lines",
+      "title": "Corridor",
+      "place": null,
+      "placeConfirmed": false,
+      "caption": "A narrow concrete corridor with a square of sky at the end."
+    },
+    {
+      "slug": "passing",
+      "file": "new/gode-bilder/003058-717",
+      "raw": true,
+      "room": "lines",
+      "title": "Passing",
+      "place": null,
+      "placeConfirmed": false,
+      "caption": "A woman walks past a pale wall, her shadow beside her."
     }
   ]
 }

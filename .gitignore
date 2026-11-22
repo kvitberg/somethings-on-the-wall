@@ -10,3 +10,5 @@ dist/
 PRODUCT.md
 .impeccable/
 skisser/
+print-files/
+print-files.log
