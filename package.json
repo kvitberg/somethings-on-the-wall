@@ -4,7 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "astro dev",
+    "build": "astro build",
+    "images": "node scripts/prepare-images.mjs",
+    "print-files": "node scripts/make-all-print-files.mjs",
+    "stripe:links": "node --env-file-if-exists=.env scripts/stripe/links.mjs",
+    "stripe:sold": "node --env-file-if-exists=.env scripts/stripe/sold.mjs",
+    "dev:test-checkout": "STRIPE_MODE=test astro dev"
   },
   "keywords": [],
   "author": "",

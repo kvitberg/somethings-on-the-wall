@@ -1,0 +1,77 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import Arrow from '../components/Arrow.astro';
+import { href, prints } from '../lib/prints';
+---
+
+<Base title="Thank you" description="Thank you for collecting a print from Somethings on the wall.">
+  <section class="wrap thanks">
+    <div class="text">
+      <h1 class="caps">Thank you</h1>
+      <p class="lede" data-lede>Your print is being made.</p>
+      <p>
+        You will receive a receipt by email. Your print is made to order by a fine art lab, checked, and sent to you with a certificate carrying your edition number and Scott Kvitberg's signature.
+      </p>
+      <a class="arrow-link" href={href('/programme/')}>Back to the programme <Arrow /></a>
+    </div>
+    <div class="photos" aria-hidden="true">
+      {
+        prints.map((p) => (
+          <div class="photo" data-slug={p.slug} hidden>
+            <Image src={p.image} alt="" widths={[500, 900]} sizes="(min-width: 900px) 40vw, 100vw" loading="lazy" />
+          </div>
+        ))
+      }
+    </div>
+  </section>
+</Base>
+
+<style>
+  .thanks {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: clamp(32px, 6vw, 104px);
+    align-items: center;
+    padding-block: var(--space-5) var(--space-6);
+  }
+  .text {
+    display: grid;
+    gap: var(--space-3);
+    justify-items: start;
+    max-width: 34rem;
+  }
+  h1 {
+    font-size: min(9vw, 112px);
+    color: var(--cobalt);
+  }
+  .lede {
+    font-family: var(--display);
+    font-size: clamp(26px, 2.6vw, 34px);
+    line-height: 1.15;
+  }
+  .text p:not(.lede) {
+    color: var(--ink-soft);
+  }
+  .photo img {
+    max-height: 70svh;
+    width: auto;
+    margin-inline: auto;
+    box-shadow: 0 2px 4px rgb(22 22 26 / 0.08), 0 28px 50px -26px rgb(22 22 26 / 0.5);
+  }
+  @media (max-width: 900px) {
+    .thanks {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<script>
+  // Stripe sends buyers here with ?print=<slug>; show that photograph and name it.
+  const slug = new URLSearchParams(location.search).get('print');
+  const photo = slug ? document.querySelector<HTMLElement>(`.photo[data-slug="${CSS.escape(slug)}"]`) : null;
+  if (photo) {
+    photo.hidden = false;
+    photo.querySelector('img')?.setAttribute('loading', 'eager');
+  }
+</script>

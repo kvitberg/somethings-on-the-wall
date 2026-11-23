@@ -3,7 +3,7 @@ import { Image } from 'astro:assets';
 import Base from '../../layouts/Base.astro';
 import Arrow from '../../components/Arrow.astro';
 import EditionLine from '../../components/EditionLine.astro';
-import { eur, href, pad, prints, printsInRoom, type Print } from '../../lib/prints';
+import { eur, href, pad, prints, printsInRoom, SITE_URL, type Print } from '../../lib/prints';
 
 export function getStaticPaths() {
   return prints.map((p) => ({ params: { slug: p.slug }, props: { p } }));
@@ -16,7 +16,7 @@ const roommates = printsInRoom(p.room.id).filter((x) => x.slug !== p.slug).slice
 const hasCheckout = Boolean(p.stripeLink) && !p.soldOut;
 ---
 
-<Base title={p.title} description={`${p.title}${p.place ? `, ${p.place}` : ''}. A signed print by Scott Kvitberg in an edition of ${p.editionSize}.`}>
+<Base title={p.title} image={`${SITE_URL}/og/${p.slug}.jpg`} description={`${p.title}${p.place ? `, ${p.place}` : ''}. A signed print by Scott Kvitberg in an edition of ${p.editionSize}.`}>
   <div class="wrap">
     <nav class="crumbs" aria-label="Breadcrumb">
       <a href={href('/programme/')}>The programme</a>

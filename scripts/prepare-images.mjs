@@ -9,6 +9,8 @@ import sharp from 'sharp';
 const root = path.resolve(import.meta.dirname, '..');
 const originals = process.argv[2] ?? path.join(root, '_originals');
 const outDir = path.join(root, 'src/assets/prints');
+const ogDir = path.join(root, 'public/og');
+fs.mkdirSync(ogDir, { recursive: true });
 const data = JSON.parse(fs.readFileSync(path.join(root, 'src/data/prints.json'), 'utf8'));
 fs.mkdirSync(outDir, { recursive: true });
 
@@ -66,6 +68,8 @@ for (const p of data.prints) {
     .withExif({ IFD0: { Copyright: '© Scott Kvitberg', Artist: 'Scott Kvitberg', ImageDescription: `${p.title}. Photograph by Scott Kvitberg.` } })
     .jpeg({ quality: 84, mozjpeg: true })
     .toFile(path.join(outDir, `${p.slug}.jpg`));
+  // Small copy at a stable public URL for social previews and the Stripe checkout page.
+  await sharp(path.join(outDir, `${p.slug}.jpg`)).resize({ width: 1000, height: 1000, fit: 'inside' }).jpeg({ quality: 78, mozjpeg: true }).toFile(path.join(ogDir, `${p.slug}.jpg`));
   console.log(p.slug.padEnd(22), note, info.width + 'x' + info.height);
 }
 

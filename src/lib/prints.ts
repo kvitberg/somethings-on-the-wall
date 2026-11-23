@@ -1,11 +1,17 @@
 import type { ImageMetadata } from 'astro';
 import data from '../data/prints.json';
+import stripeLinks from '../data/stripe-links.json';
 
 const images = import.meta.glob<{ default: ImageMetadata }>('../assets/prints/*.jpg', { eager: true });
 
 export type Room = (typeof data.rooms)[number];
 
 export const rooms: Room[] = data.rooms;
+
+// Checkout links come from scripts/stripe/links.mjs. The public build uses live links only;
+// `npm run dev:test-checkout` shows test links locally.
+export const checkoutMode = process.env.STRIPE_MODE === 'test' ? 'test' : 'live';
+const checkout: Record<string, { url: string }> = (stripeLinks as Record<string, Record<string, { url: string }>>)[checkoutMode] ?? {};
 
 export const prints = data.prints.map((p, i) => {
   const merged = { ...data.defaults, ...p };
@@ -23,6 +29,7 @@ export const prints = data.prints.map((p, i) => {
     remaining,
     nextNumber: merged.sold + 1,
     soldOut: remaining <= 0,
+    stripeLink: checkout[p.slug]?.url ?? '',
   };
 });
 
@@ -40,6 +47,7 @@ export const eur = (n: number) => eurFormat.format(n);
 
 export const pad = (n: number) => String(n).padStart(2, '0');
 
+export const SITE_URL = 'https://kvitberg.github.io/somethings-on-the-wall';
 export const href = (path: string) => `${import.meta.env.BASE_URL.replace(/\/$/, '')}${path}`;
 
 export const printsInRoom = (roomId: string) => prints.filter((p) => p.room.id === roomId);

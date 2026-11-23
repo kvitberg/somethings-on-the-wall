@@ -12,3 +12,5 @@ PRODUCT.md
 skisser/
 print-files/
 print-files.log
+.env
+.env.*
