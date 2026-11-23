@@ -24,12 +24,12 @@
     {
       "id": "islands",
       "title": "Islands",
-      "line": "Sand, palms and painted houses on warm-water islands."
+      "line": "Sand, palms and painted houses, from Barbados to Zanzibar."
     },
     {
       "id": "wild",
       "title": "Wild",
-      "line": "Monkeys, birds and a giant tortoise, up close."
+      "line": "Monkeys, birds and a giant tortoise from Barbados and Mauritius."
     },
     {
       "id": "halls",
@@ -260,8 +260,8 @@
       "raw": true,
       "room": "islands",
       "title": "Palm",
-      "place": null,
-      "placeConfirmed": false,
+      "place": "Barbados",
+      "placeConfirmed": true,
       "caption": "A single palm leans over white sand and calm blue water.",
       "detail": {
         "x": 62,
@@ -289,8 +289,8 @@
       "raw": true,
       "room": "islands",
       "title": "The Channel",
-      "place": null,
-      "placeConfirmed": false,
+      "place": "Barbados",
+      "placeConfirmed": true,
       "caption": "A narrow channel cut through dark rocks leads to a turquoise sea."
     },
     {
@@ -299,8 +299,8 @@
       "raw": true,
       "room": "islands",
       "title": "Corner Shop",
-      "place": null,
-      "placeConfirmed": false,
+      "place": "Barbados",
+      "placeConfirmed": true,
       "caption": "A small corner shop glows under power lines at night."
     },
     {
@@ -309,8 +309,8 @@
       "raw": true,
       "room": "islands",
       "title": "Window to the Sea",
-      "place": null,
-      "placeConfirmed": false,
+      "place": "Barbados",
+      "placeConfirmed": true,
       "caption": "An empty concrete window frames palms and breaking surf."
     },
     {
@@ -319,8 +319,8 @@
       "raw": true,
       "room": "islands",
       "title": "Cove",
-      "place": null,
-      "placeConfirmed": false,
+      "place": "Barbados",
+      "placeConfirmed": true,
       "caption": "Palms and dark rocks above a quiet sandy cove."
     },
     {
@@ -329,8 +329,8 @@
       "raw": true,
       "room": "islands",
       "title": "Sand Path",
-      "place": null,
-      "placeConfirmed": false,
+      "place": "Barbados",
+      "placeConfirmed": true,
       "caption": "A sandy path winds between rocks and palms toward the coast."
     },
     {
@@ -339,8 +339,8 @@
       "raw": true,
       "room": "islands",
       "title": "Dusk",
-      "place": null,
-      "placeConfirmed": false,
+      "place": "Barbados",
+      "placeConfirmed": true,
       "caption": "Palms and pink clouds above a quiet street at dusk."
     },
     {
@@ -349,8 +349,8 @@
       "raw": true,
       "room": "islands",
       "title": "Last Light",
-      "place": null,
-      "placeConfirmed": false,
+      "place": "Barbados",
+      "placeConfirmed": true,
       "caption": "A tall pale building catches the last pink light of the evening."
     },
     {
@@ -359,8 +359,8 @@
       "raw": true,
       "room": "islands",
       "title": "Blue House",
-      "place": null,
-      "placeConfirmed": false,
+      "place": "Barbados",
+      "placeConfirmed": true,
       "caption": "A small pale blue wooden house on a dirt road, a red car beside it."
     },
     {
@@ -369,8 +369,8 @@
       "raw": true,
       "room": "islands",
       "title": "Green House",
-      "place": null,
-      "placeConfirmed": false,
+      "place": "Barbados",
+      "placeConfirmed": true,
       "caption": "A green and red wooden house on a quiet corner at sunset."
     },
     {
@@ -379,8 +379,8 @@
       "raw": true,
       "room": "islands",
       "title": "Night Street",
-      "place": null,
-      "placeConfirmed": false,
+      "place": "Barbados",
+      "placeConfirmed": true,
       "caption": "A single lamp lights a dark street lined with houses."
     },
     {
@@ -389,8 +389,8 @@
       "raw": true,
       "room": "islands",
       "title": "After Dark",
-      "place": null,
-      "placeConfirmed": false,
+      "place": "Barbados",
+      "placeConfirmed": true,
       "caption": "Wooden houses glow under the streetlights after dark."
     },
     {
@@ -399,8 +399,8 @@
       "raw": true,
       "room": "islands",
       "title": "To the Sea",
-      "place": null,
-      "placeConfirmed": false,
+      "place": "Barbados",
+      "placeConfirmed": true,
       "caption": "A dirt path under casuarina trees opens onto the sea."
     },
     {
@@ -409,8 +409,8 @@
       "raw": true,
       "room": "islands",
       "title": "The Cave",
-      "place": null,
-      "placeConfirmed": false,
+      "place": "Barbados",
+      "placeConfirmed": true,
       "caption": "Light pours through a hole in a dark sea cave and onto the water.",
       "detail": {
         "x": 56,
@@ -424,8 +424,8 @@
       "raw": true,
       "room": "islands",
       "title": "Sea Cave",
-      "place": null,
-      "placeConfirmed": false,
+      "place": "Barbados",
+      "placeConfirmed": true,
       "caption": "A wide opening in a sea cave, reflected in the still water below."
     },
     {
@@ -434,8 +434,8 @@
       "raw": true,
       "room": "islands",
       "title": "Breakwater",
-      "place": null,
-      "placeConfirmed": false,
+      "place": "Barbados",
+      "placeConfirmed": true,
       "caption": "A rock breakwater and a sandy path along a turquoise sea."
     },
     {
@@ -444,8 +444,8 @@
       "raw": true,
       "room": "islands",
       "title": "Boardwalk",
-      "place": null,
-      "placeConfirmed": false,
+      "place": "Barbados",
+      "placeConfirmed": true,
       "caption": "A wooden boardwalk runs along the beach under leaning palms."
     },
     {
@@ -454,8 +454,8 @@
       "raw": true,
       "room": "wild",
       "title": "The Monkey",
-      "place": null,
-      "placeConfirmed": false,
+      "place": "Barbados",
+      "placeConfirmed": true,
       "caption": "A green monkey sits on a white ledge against a wall of leaves."
     },
     {
@@ -504,8 +504,8 @@
       "raw": true,
       "room": "wild",
       "title": "Lizard",
-      "place": null,
-      "placeConfirmed": false,
+      "place": "Barbados",
+      "placeConfirmed": true,
       "caption": "A small lizard pauses on the forest floor under bright green leaves."
     },
     {
@@ -514,8 +514,8 @@
       "raw": true,
       "room": "wild",
       "title": "Among the Pines",
-      "place": null,
-      "placeConfirmed": false,
+      "place": "Barbados",
+      "placeConfirmed": true,
       "caption": "A small bird perches in a pine tree, half hidden by needles."
     },
     {
@@ -524,8 +524,8 @@
       "raw": true,
       "room": "wild",
       "title": "Parakeet on a Wire",
-      "place": null,
-      "placeConfirmed": false,
+      "place": "Barbados",
+      "placeConfirmed": true,
       "caption": "A green parakeet balances on a wire among the trees."
     },
     {
@@ -534,8 +534,8 @@
       "raw": true,
       "room": "wild",
       "title": "Watching",
-      "place": null,
-      "placeConfirmed": false,
+      "place": "Barbados",
+      "placeConfirmed": true,
       "caption": "A monkey crouches on a branch, looking straight back."
     },
     {
@@ -544,8 +544,8 @@
       "raw": true,
       "room": "wild",
       "title": "Parakeet",
-      "place": null,
-      "placeConfirmed": false,
+      "place": "Barbados",
+      "placeConfirmed": true,
       "caption": "A green parakeet with a red beak perches among pale leaves.",
       "detail": {
         "x": 50,
@@ -848,8 +848,8 @@
       "raw": true,
       "room": "lines",
       "title": "The Tunnel",
-      "place": null,
-      "placeConfirmed": false,
+      "place": "Barbados",
+      "placeConfirmed": true,
       "caption": "A row of rounded concrete arches recedes into green light."
     },
     {
@@ -858,8 +858,8 @@
       "raw": true,
       "room": "lines",
       "title": "The Ruin",
-      "place": null,
-      "placeConfirmed": false,
+      "place": "Barbados",
+      "placeConfirmed": true,
       "caption": "Columns of an abandoned building, overgrown with green."
     },
     {
@@ -868,8 +868,8 @@
       "raw": true,
       "room": "lines",
       "title": "Corridor",
-      "place": null,
-      "placeConfirmed": false,
+      "place": "Barbados",
+      "placeConfirmed": true,
       "caption": "A narrow concrete corridor with a square of sky at the end."
     },
     {
@@ -878,8 +878,8 @@
       "raw": true,
       "room": "lines",
       "title": "Passing",
-      "place": null,
-      "placeConfirmed": false,
+      "place": "Barbados",
+      "placeConfirmed": true,
       "caption": "A woman walks past a pale wall, her shadow beside her."
     }
   ]
