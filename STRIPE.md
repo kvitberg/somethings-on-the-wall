@@ -32,6 +32,8 @@ og sender kjøperen tilbake til takkesiden (`/thanks/`).
    npm run dev:test-checkout
    ```
 
+   (I Claude-appen heter den lokale testversjonen `somethings-on-the-wall-testkasse`, på port 4322.)
+
    Kjøp med testkortet `4242 4242 4242 4242`, en dato fram i tid og hvilken som helst CVC.
 
 ## Når priser og opplag er bestemt (live)
@@ -47,7 +49,7 @@ og sender kjøperen tilbake til takkesiden (`/thanks/`).
 npm run stripe:sold -- --live
 ```
 
-Teller betalte ordre per print og oppdaterer `sold`, så siden viser riktig antall igjen og neste nummer.
+Teller betalte ordre per print og lagrer dem i `src/data/sales.json` (test og live hver for seg, så testkjøp aldri vises på den publiserte siden). Siden viser da riktig antall igjen og neste nummer.
 Bygg og publiser etterpå. Bestill trykket hos theprintspace fra ordren i Stripe.
 
 ## Godt å vite

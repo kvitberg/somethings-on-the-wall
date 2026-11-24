@@ -1,6 +1,7 @@
 import type { ImageMetadata } from 'astro';
 import data from '../data/prints.json';
 import stripeLinks from '../data/stripe-links.json';
+import salesByMode from '../data/sales.json';
 
 const images = import.meta.glob<{ default: ImageMetadata }>('../assets/prints/*.jpg', { eager: true });
 
@@ -12,9 +13,12 @@ export const rooms: Room[] = data.rooms;
 // `npm run dev:test-checkout` shows test links locally.
 export const checkoutMode = process.env.STRIPE_MODE === 'test' ? 'test' : 'live';
 const checkout: Record<string, { url: string }> = (stripeLinks as Record<string, Record<string, { url: string }>>)[checkoutMode] ?? {};
+const sales: Record<string, number> = (salesByMode as Record<string, Record<string, number>>)[checkoutMode] ?? {};
 
 export const prints = data.prints.map((p, i) => {
-  const merged = { ...data.defaults, ...p };
+  const base = { ...data.defaults, ...p };
+  // prints.json holds any prints sold outside Stripe; sales.json adds paid Stripe orders.
+  const merged = { ...base, sold: base.sold + (sales[p.slug] ?? 0) };
   const image = images[`../assets/prints/${p.slug}.jpg`]?.default;
   if (!image) throw new Error(`Missing web image for ${p.slug}; run scripts/prepare-images.mjs`);
   const room = rooms.find((r) => r.id === p.room);

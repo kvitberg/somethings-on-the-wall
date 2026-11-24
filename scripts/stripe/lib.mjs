@@ -7,6 +7,7 @@ import path from 'node:path';
 export const root = path.resolve(import.meta.dirname, '../..');
 export const linksFile = path.join(root, 'src/data/stripe-links.json');
 export const printsFile = path.join(root, 'src/data/prints.json');
+export const salesFile = path.join(root, 'src/data/sales.json');
 const API = 'https://api.stripe.com/v1';
 const VERSION = '2026-11-18.endive';
 
