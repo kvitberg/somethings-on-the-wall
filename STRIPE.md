@@ -41,7 +41,13 @@ og sender kjøperen tilbake til takkesiden (`/thanks/`).
 ## Når priser og opplag er bestemt (live)
 
 1. Størrelser, priser og frakt står under `defaults` i `src/data/prints.json` (`sizes`, `shippingEur`, `editionSize`). Et enkeltbilde kan overstyre dem.
-2. Lag en ny begrenset nøkkel i *live-modus* med de samme rettighetene, og bytt linjen i `.env`.
+2. Aktiver kontoen i Stripe («Verify your business»). Lag så en begrenset nøkkel i *live-modus* med de samme rettighetene, og legg den på en ny linje i `.env`:
+
+   ```
+   STRIPE_LIVE_SECRET_KEY=rk_live_...
+   ```
+
+   Testnøkkelen kan stå der den står.
 3. `npm run stripe:links -- --live`
 4. Bygg og publiser siden. Kjøpsknappene peker nå til Stripe.
 

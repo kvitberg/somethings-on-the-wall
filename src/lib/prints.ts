@@ -2,6 +2,7 @@ import type { ImageMetadata } from 'astro';
 import data from '../data/prints.json';
 import stripeLinks from '../data/stripe-links.json';
 import salesByMode from '../data/sales.json';
+import sellerData from '../data/seller.json';
 
 const images = import.meta.glob<{ default: ImageMetadata }>('../assets/prints/*.jpg', { eager: true });
 
@@ -15,6 +16,13 @@ export const checkoutMode = process.env.STRIPE_MODE === 'test' ? 'test' : 'live'
 type LinkRecord = { url: string };
 const checkout = ((stripeLinks as Record<string, unknown>)[checkoutMode] ?? {}) as Record<string, Record<string, LinkRecord>>;
 const sales: Record<string, number> = (salesByMode as Record<string, Record<string, number>>)[checkoutMode] ?? {};
+
+export const seller = sellerData;
+export const sellerComplete = Boolean(seller.name && seller.orgNumber && seller.address && seller.email);
+// Never take real money without the seller details the law requires on the site.
+if (checkoutMode === 'live' && Object.keys(checkout).some((k) => !k.startsWith('_')) && !sellerComplete) {
+  throw new Error('Live checkout links exist but src/data/seller.json is incomplete. Add org number, address and email first.');
+}
 
 type SizeDef = { id: string; inches: number[]; cm: number[]; priceEur: number };
 
@@ -58,7 +66,8 @@ export const featured = prints.find((p) => p.slug === data.featured) ?? prints[0
 type Detail = { x: number; y: number; zoom: number };
 export const detailOf = (p: Print): Detail => ('detail' in p && p.detail ? (p.detail as Detail) : { x: 50, y: 50, zoom: 1.6 });
 
-export const isPreview = true; // remove the preview notice once prices and editions are confirmed
+// The preview notice and noindex stay until live checkout links exist.
+export const isPreview = !(checkoutMode === 'live' && Object.keys(checkout).some((k) => !k.startsWith('_')));
 
 const eurFormat = new Intl.NumberFormat('en-IE', { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 });
 export const eur = (n: number) => eurFormat.format(n);

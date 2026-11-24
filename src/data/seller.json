@@ -1,0 +1,8 @@
+{
+  "_note": "Shown on /terms/ and in the footer. Fill in before live checkout is switched on; the build refuses live links while any field is empty.",
+  "name": "Fotostallen AS",
+  "orgNumber": "",
+  "address": "",
+  "email": "",
+  "country": "Norway"
+}

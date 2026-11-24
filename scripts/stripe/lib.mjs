@@ -1,6 +1,4 @@
-// Small Stripe REST helper (no SDK). The secret key comes from STRIPE_SECRET_KEY, which
-// Scott puts in .env himself (gitignored). Test keys (sk_test_/rk_test_) write test links,
-// live keys write live links, and live mode also needs --live so it never happens by accident.
+// Small Stripe REST helper (no SDK). Keys live in .env, which Scott fills in himself (gitignored).
 import fs from 'node:fs';
 import path from 'node:path';
 
@@ -11,19 +9,19 @@ export const salesFile = path.join(root, 'src/data/sales.json');
 const API = 'https://api.stripe.com/v1';
 const VERSION = '2026-11-18.endive';
 
+// Test commands read STRIPE_SECRET_KEY; --live reads STRIPE_LIVE_SECRET_KEY, so both keys can
+// sit in .env side by side and real payments only happen when asked for.
 export function getMode({ dryRun = false } = {}) {
-  const key = process.env.STRIPE_SECRET_KEY ?? '';
-  if (dryRun && !key) return { key: '', mode: 'test' };
-  if (!/^(sk|rk)_(test|live)_/.test(key)) {
-    console.error('Missing STRIPE_SECRET_KEY. Put a line like STRIPE_SECRET_KEY=rk_test_... in .env (see STRIPE.md).');
+  const live = process.argv.includes('--live');
+  const name = live ? 'STRIPE_LIVE_SECRET_KEY' : 'STRIPE_SECRET_KEY';
+  const key = process.env[name] ?? '';
+  if (dryRun && !key) return { key: '', mode: live ? 'live' : 'test' };
+  const pattern = live ? /^(sk|rk)_live_/ : /^(sk|rk)_test_/;
+  if (!pattern.test(key)) {
+    console.error(`Missing or wrong ${name}. Put a line like ${name}=${live ? 'rk_live_' : 'rk_test_'}... in .env (see STRIPE.md).`);
     process.exit(1);
   }
-  const mode = key.includes('_live_') ? 'live' : 'test';
-  if (mode === 'live' && !process.argv.includes('--live')) {
-    console.error('This is a live key. Run again with --live to work with real payments.');
-    process.exit(1);
-  }
-  return { key, mode };
+  return { key, mode: live ? 'live' : 'test' };
 }
 
 // Stripe expects form encoding with bracketed keys: a[b][0][c]=x

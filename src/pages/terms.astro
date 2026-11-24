@@ -1,0 +1,81 @@
+---
+import Base from '../layouts/Base.astro';
+import { eur, prints, seller, sellerComplete } from '../lib/prints';
+
+const shipping = prints[0]?.shippingEur ?? 0;
+const edition = prints[0]?.editionSize ?? 25;
+const contact = seller.email || '[contact email]';
+---
+
+<Base title="Terms and privacy" description="Terms of sale and privacy for Somethings on the wall.">
+  <article class="wrap terms">
+    <h1 class="caps">Terms and privacy</h1>
+
+    <section aria-labelledby="seller">
+      <h2 id="seller">Who sells the prints</h2>
+      <p>
+        Somethings on the wall is run by {seller.name}{seller.orgNumber && <>, organisation number {seller.orgNumber}</>}{seller.address && <>, {seller.address}</>}, {seller.country}.
+        You can reach us at {sellerComplete ? <a href={`mailto:${seller.email}`}>{seller.email}</a> : contact}.
+      </p>
+    </section>
+
+    <section aria-labelledby="prints">
+      <h2 id="prints">The prints</h2>
+      <p>
+        Every photograph is printed in an edition of {edition} across all sizes and never again. Each print is numbered in the order it is collected and comes with a certificate carrying its edition number and the photographer's signature. Prints are archival pigment prints on Hahnemühle cotton paper, unframed and made to order by a fine art lab.
+      </p>
+    </section>
+
+    <section aria-labelledby="prices">
+      <h2 id="prices">Prices, payment and shipping</h2>
+      <p>
+        Prices are in euros. Shipping costs {eur(shipping)} per print and is added at checkout. Payment is handled by Stripe; we never see or store your card details. Depending on your country, import duties or local taxes may apply on delivery.
+      </p>
+    </section>
+
+    <section aria-labelledby="returns">
+      <h2 id="returns">Changing your mind</h2>
+      <p>
+        You can cancel your purchase within 14 days of receiving your print. Write to us, then return the print undamaged in its original packaging; you pay the cost of the return. We refund the price and the original shipping within 14 days of receiving the print back.
+      </p>
+      <p>If your print arrives damaged, send us a photo within 14 days and we will replace it at no cost.</p>
+    </section>
+
+    <section aria-labelledby="privacy">
+      <h2 id="privacy">Privacy</h2>
+      <p>
+        {seller.name} is responsible for the personal data you give us when you buy a print: your name, email, phone number and delivery address. We use it only to make, ship and account for your order. It is shared with Stripe, which processes the payment, and with the print lab, which prints and ships your order. We keep sales records for as long as Norwegian bookkeeping law requires, which is currently five years.
+      </p>
+      <p>
+        This website sets no cookies and uses no tracking. Stripe's checkout page has its own privacy terms. You can ask to see, correct or delete your data by writing to {sellerComplete ? <a href={`mailto:${seller.email}`}>{seller.email}</a> : contact}, and you can complain to the Norwegian Data Protection Authority (Datatilsynet).
+      </p>
+    </section>
+  </article>
+</Base>
+
+<style>
+  .terms {
+    max-width: 52rem;
+    padding-block: var(--space-4) var(--space-6);
+    display: grid;
+    gap: var(--space-4);
+  }
+  h1 {
+    font-size: min(10vw, 96px);
+    color: var(--cobalt);
+    margin-bottom: var(--space-2);
+  }
+  section {
+    display: grid;
+    gap: var(--space-2);
+    padding-top: var(--space-3);
+    border-top: 1px solid var(--hairline);
+  }
+  h2 {
+    font-size: clamp(26px, 2.6vw, 34px);
+  }
+  p {
+    color: var(--ink-soft);
+    max-width: 62ch;
+  }
+</style>
