@@ -28,7 +28,7 @@ const { items, preview = false } = Astro.props;
             </span>
             <span class="col-room">{p.room.title}</span>
             <span class="col-left num">{p.soldOut ? 'Sold out' : `${p.remaining} / ${p.editionSize}`}</span>
-            <span class="col-price num">{eur(p.priceEur)}</span>
+            <span class="col-price num">from {eur(p.fromPrice)}</span>
           </a>
         </li>
       ))
@@ -67,7 +67,7 @@ const { items, preview = false } = Astro.props;
   }
   .row {
     display: grid;
-    grid-template-columns: 3.2rem minmax(0, 1fr) 6.5rem 5.5rem 5rem;
+    grid-template-columns: 3.2rem minmax(0, 1fr) 6.5rem 5.5rem 6.5rem;
     gap: 16px;
     align-items: baseline;
     padding: 14px 0;

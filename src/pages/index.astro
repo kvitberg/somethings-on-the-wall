@@ -87,7 +87,7 @@ const band = pick('the-long-gallery');
             <div class:list={['box-slide', { active: i === 0 }]} data-slide={i}>
               <p class="box-name">{p.title}</p>
               <p class="box-meta num">
-                Exhibit {p.numberLabel} · {eur(p.priceEur)} · {p.remaining} of {p.editionSize} left
+                Exhibit {p.numberLabel} · from {eur(p.fromPrice)} · {p.remaining} of {p.editionSize} left
               </p>
               <a class="arrow-link" href={href(`/prints/${p.slug}/`)} tabindex={i === 0 ? undefined : -1}>
                 Collect <Arrow />

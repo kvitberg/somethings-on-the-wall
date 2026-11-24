@@ -13,7 +13,7 @@ const i = prints.indexOf(p);
 const prev = prints[(i - 1 + prints.length) % prints.length];
 const next = prints[(i + 1) % prints.length];
 const roommates = printsInRoom(p.room.id).filter((x) => x.slug !== p.slug).slice(0, 3);
-const hasCheckout = Boolean(p.stripeLink) && !p.soldOut;
+const chosen = p.sizes.find((z) => z.id === p.defaultSize) ?? p.sizes[0];
 ---
 
 <Base title={p.title} image={`${SITE_URL}/og/${p.slug}.jpg`} description={`${p.title}${p.place ? `, ${p.place}` : ''}. A signed print by Scott Kvitberg in an edition of ${p.editionSize}.`}>
@@ -31,11 +31,25 @@ const hasCheckout = Boolean(p.stripeLink) && !p.soldOut;
         {p.place && <p class="place">{p.place}</p>}
         <p class="caption">{p.caption}</p>
 
-        <div class="buy">
-          <p class="price num">{eur(p.priceEur)}</p>
+        <fieldset class="sizes" data-sizes>
+          <legend class="visually-hidden">Choose a size</legend>
           {
-            hasCheckout ? (
-              <a class="collect" href={p.stripeLink} rel="noopener">
+            p.sizes.map((z) => (
+              <label class="size">
+                <input type="radio" name="size" value={z.id} checked={z.id === chosen.id} data-url={z.url} data-price={eur(z.priceEur)} disabled={p.soldOut} />
+                <span class="size-name num">{z.label}</span>
+                <span class="size-cm num">{z.cm}</span>
+                <span class="size-price num">{eur(z.priceEur)}</span>
+              </label>
+            ))
+          }
+        </fieldset>
+
+        <div class="buy">
+          <p class="price num" data-price-out>{eur(chosen.priceEur)}</p>
+          {
+            p.hasCheckout ? (
+              <a class="collect" href={chosen.url} rel="noopener" data-collect>
                 Collect No. {pad(p.nextNumber)} <Arrow />
               </a>
             ) : p.soldOut ? (
@@ -47,7 +61,9 @@ const hasCheckout = Boolean(p.stripeLink) && !p.soldOut;
             )
           }
         </div>
-        {!hasCheckout && !p.soldOut && <p class="launch-note">Checkout opens at launch.</p>}
+        <p class="launch-note">
+          {p.hasCheckout || p.soldOut ? '' : 'Checkout opens at launch. '}Shipping {eur(p.shippingEur)}, added at checkout.
+        </p>
 
         <EditionLine size={p.editionSize} sold={p.sold} />
 
@@ -71,10 +87,10 @@ const hasCheckout = Boolean(p.stripeLink) && !p.soldOut;
 
     <section class="wrap specs" aria-label="Print details">
       <dl>
-        <div><dt>Format</dt><dd>{p.format}</dd></div>
+        <div><dt>Sizes</dt><dd class="num">{p.sizes.map((z) => z.label).join(', ')}</dd></div>
         <div><dt>Paper</dt><dd>{p.paper}</dd></div>
         <div><dt>Finish</dt><dd>{p.frame}</dd></div>
-        <div><dt>Edition</dt><dd>{p.editionSize} prints, signed and numbered</dd></div>
+        <div><dt>Edition</dt><dd>{p.editionSize} prints across all sizes, signed and numbered</dd></div>
       </dl>
     </section>
 
@@ -162,6 +178,49 @@ const hasCheckout = Boolean(p.stripeLink) && !p.soldOut;
     line-height: 1.55;
     color: var(--ink-soft);
     max-width: 34ch;
+  }
+  .sizes {
+    border: 0;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    border-top: 1px solid var(--hairline);
+  }
+  .size {
+    display: grid;
+    grid-template-columns: 20px 1fr auto auto;
+    gap: 14px;
+    align-items: center;
+    padding: 12px 4px;
+    border-bottom: 1px solid var(--hairline);
+    cursor: pointer;
+    transition: background-color 0.2s var(--ease-out);
+  }
+  .size:hover {
+    background: var(--stone-deep);
+  }
+  .size input {
+    accent-color: var(--cobalt);
+    width: 16px;
+    height: 16px;
+    margin: 0;
+  }
+  .size-name {
+    font-variation-settings: 'wght' 560;
+  }
+  .size-cm {
+    color: var(--ink-soft);
+    font-size: 14px;
+  }
+  .size-price {
+    min-width: 4.5rem;
+    text-align: right;
+  }
+  .size:has(input:checked) {
+    color: var(--cobalt);
+  }
+  .size:has(input:checked) .size-cm {
+    color: inherit;
   }
   .buy {
     display: flex;
@@ -356,3 +415,15 @@ const hasCheckout = Boolean(p.stripeLink) && !p.soldOut;
     }
   }
 </style>
+
+<script>
+  // Choosing a size updates the price and which Stripe link the Collect button opens.
+  const group = document.querySelector<HTMLElement>('[data-sizes]');
+  const priceOut = document.querySelector('[data-price-out]');
+  const collect = document.querySelector<HTMLAnchorElement>('[data-collect]');
+  group?.addEventListener('change', (e) => {
+    const input = e.target as HTMLInputElement;
+    if (priceOut) priceOut.textContent = input.dataset.price ?? '';
+    if (collect && input.dataset.url) collect.href = input.dataset.url;
+  });
+</script>

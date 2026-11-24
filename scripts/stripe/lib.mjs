@@ -47,11 +47,24 @@ export function client(key, { dryRun = false } = {}) {
       return { id: `dry_${pathname.split('/')[1]}_${++n}`, url: `https://buy.stripe.com/test_dry_${n}` };
     }
     const url = method === 'GET' ? `${API}${pathname}?${body}` : `${API}${pathname}`;
-    const res = await fetch(url, {
-      method,
-      headers: { Authorization: `Bearer ${key}`, 'Stripe-Version': VERSION, ...(method === 'GET' ? {} : { 'Content-Type': 'application/x-www-form-urlencoded' }) },
-      body: method === 'GET' ? undefined : body,
-    });
+    // Retry network drops, rate limits and server errors. POSTs carry one idempotency key across
+    // retries, so a retry after a lost response returns the same object instead of a duplicate.
+    const idem = method === 'GET' ? {} : { 'Idempotency-Key': crypto.randomUUID() };
+    let res;
+    for (let attempt = 1; ; attempt++) {
+      try {
+        res = await fetch(url, {
+          method,
+          headers: { Authorization: `Bearer ${key}`, 'Stripe-Version': VERSION, ...idem, ...(method === 'GET' ? {} : { 'Content-Type': 'application/x-www-form-urlencoded' }) },
+          body: method === 'GET' ? undefined : body,
+        });
+        if ((res.status === 429 || res.status >= 500) && attempt < 5) throw new Error(`HTTP ${res.status}`);
+        break;
+      } catch (err) {
+        if (attempt >= 5) throw err;
+        await new Promise((r) => setTimeout(r, 500 * 2 ** attempt));
+      }
+    }
     const json = await res.json();
     if (!res.ok) throw new Error(`Stripe ${method} ${pathname}: ${json.error?.message ?? res.status}`);
     return json;

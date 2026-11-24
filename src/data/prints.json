@@ -1,13 +1,50 @@
 {
-  "_note": "Prices, edition sizes, formats, titles, places and captions are drafts for Scott to confirm. placeConfirmed=false means the place was inferred from the file name or the picture.",
+  "_note": "Sizes and prices confirmed by Scott 24.11.2026 (one shared edition of 25 across all sizes, shipping added at checkout). Titles, places and captions are drafts. placeConfirmed=false means the place was inferred.",
   "defaults": {
     "editionSize": 25,
     "sold": 0,
-    "priceEur": 380,
-    "format": "A2 · 42 × 59.4 cm",
+    "sizes": [
+      {
+        "id": "small",
+        "inches": [
+          11,
+          14
+        ],
+        "cm": [
+          28,
+          36
+        ],
+        "priceEur": 190
+      },
+      {
+        "id": "medium",
+        "inches": [
+          18,
+          24
+        ],
+        "cm": [
+          46,
+          61
+        ],
+        "priceEur": 390
+      },
+      {
+        "id": "large",
+        "inches": [
+          24,
+          36
+        ],
+        "cm": [
+          61,
+          91
+        ],
+        "priceEur": 690
+      }
+    ],
+    "defaultSize": "medium",
+    "shippingEur": 25,
     "paper": "Hahnemühle Photo Rag 308 gsm",
-    "frame": "Unframed, shipped flat",
-    "stripeLink": ""
+    "frame": "Unframed, shipped flat"
   },
   "featured": "the-red-wall",
   "rooms": [

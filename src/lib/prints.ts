@@ -9,11 +9,14 @@ export type Room = (typeof data.rooms)[number];
 
 export const rooms: Room[] = data.rooms;
 
-// Checkout links come from scripts/stripe/links.mjs. The public build uses live links only;
-// `npm run dev:test-checkout` shows test links locally.
+// Checkout links come from scripts/stripe/links.mjs, one per print and size. The public build
+// uses live links only; `npm run dev:test-checkout` shows test links locally.
 export const checkoutMode = process.env.STRIPE_MODE === 'test' ? 'test' : 'live';
-const checkout: Record<string, { url: string }> = (stripeLinks as Record<string, Record<string, { url: string }>>)[checkoutMode] ?? {};
+type LinkRecord = { url: string };
+const checkout = ((stripeLinks as Record<string, unknown>)[checkoutMode] ?? {}) as Record<string, Record<string, LinkRecord>>;
 const sales: Record<string, number> = (salesByMode as Record<string, Record<string, number>>)[checkoutMode] ?? {};
+
+type SizeDef = { id: string; inches: number[]; cm: number[]; priceEur: number };
 
 export const prints = data.prints.map((p, i) => {
   const base = { ...data.defaults, ...p };
@@ -24,6 +27,14 @@ export const prints = data.prints.map((p, i) => {
   const room = rooms.find((r) => r.id === p.room);
   if (!room) throw new Error(`Unknown room ${p.room} on ${p.slug}`);
   const remaining = merged.editionSize - merged.sold;
+  const landscape = image.width > image.height;
+  // Sizes are listed portrait-first in the data; landscape photos swap width and height.
+  const sizes = (merged.sizes as SizeDef[]).map((z) => {
+    const [w, h] = landscape ? [z.inches[1], z.inches[0]] : [z.inches[0], z.inches[1]];
+    const [cw, ch] = landscape ? [z.cm[1], z.cm[0]] : [z.cm[0], z.cm[1]];
+    return { id: z.id, priceEur: z.priceEur, label: `${w} × ${h} in`, cm: `${cw} × ${ch} cm`, url: checkout[p.slug]?.[z.id]?.url ?? '' };
+  });
+  const fromPrice = Math.min(...sizes.map((z) => z.priceEur));
   return {
     ...merged,
     number: i + 1,
@@ -33,7 +44,10 @@ export const prints = data.prints.map((p, i) => {
     remaining,
     nextNumber: merged.sold + 1,
     soldOut: remaining <= 0,
-    stripeLink: checkout[p.slug]?.url ?? '',
+    landscape,
+    sizes,
+    fromPrice,
+    hasCheckout: remaining > 0 && sizes.some((z) => z.url),
   };
 });
 
